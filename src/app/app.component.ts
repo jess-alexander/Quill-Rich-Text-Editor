@@ -126,36 +126,51 @@ export class AppComponent  {
   }
 }
 
-// NavTask has contents of database item (withholding UUIDs)
-class NavTask {
+enum TASK_TYPE {
+  CONTENT                = 'CONTENT',
+  QUIZ                   = 'QUIZ',
+  QUESTIONNAIRE          = 'QUESTIONNAIRE',
+  BG_OCCUPATION_ANALYSIS = 'BG_OCCUPATION_ANALYSIS'
+}
+// Task has contents of database item (withholding UUIDs)
+class Task {
    stageId: string
    priority: number 
    title: string 
    excerpt: string 
    description: string 
-   type: NavTaskType 
+   type: TASK_TYPE 
    duration: number 
-  config?: Array<ContentTask> | QuestionnaireTask
+   config?: ContentTaskConfig | QuestionnaireTaskConfig
 }
-
-class ContentTask{
-  type: ContentSubTypes;
+class ContentTaskConfig{
+  content: ContentTaskPageConfig[];
 }
-class Frame extends ContentTask{
-  type: ContentSubTypes.FRAME
+enum CONTENT_SUB_TYPES {
+  BLURB    = 'BLURB',
+  FRAME    = 'FRAME',
+  EXTERNAL = 'EXTERNAL',
+  TRIVIA   = 'TRIVIA'
+}
+class ContentTaskPageConfig {
+  type: CONTENT_SUB_TYPES;
+}
+class FrameTaskPage extends ContentTaskPageConfig {
+  type: CONTENT_SUB_TYPES.FRAME
   url: string
 }
-class External extends ContentTask{ // potential for validating further
-  type: ContentSubTypes.EXTERNAL | ContentSubTypes.BLURB
+class ExternalLinkTaskPage extends ContentTaskPageConfig { // potential for validating further
+  type: CONTENT_SUB_TYPES.EXTERNAL
   url?: string
   richText?: string
 }
-class Trivia extends ContentTask{
-  type: ContentSubTypes.EXTERNAL | ContentSubTypes.TRIVIA
+class TriviaTaskPage extends ContentTaskPageConfig {
+  type: CONTENT_SUB_TYPES.TRIVIA
   url?: string
   richText?: string
   question?: Question
 }
+
 class Question {
     key: string;
     title: string;
@@ -171,18 +186,6 @@ class Option {
     text: string;
     correct?: boolean;
 }
-enum NavTaskType {
-  CONTENT,
-  // QUIZ,
-  QUESTIONNAIRE,
-  BG_OCCUPATION_ANALYSIS
-}
-enum ContentSubTypes{
-  BLURB,
-  EXTERNAL,
-  FRAME,
-  TRIVIA,
-}
-class QuestionnaireTask{
+class QuestionnaireTaskConfig{
   questions: Array<Question>
 }
