@@ -1,14 +1,46 @@
 
-<label>Task-Type</label>
+<label>Page-Type</label>
 <select class="form-control"  [(ngModel)]="pageConfig['type']"  >
-  <option value="blurb">text</option>
-  <option value="iframe">iframe</option>
-  <option value="external">external link</option>
-  <option value="vault">vault</option>
+  <option value="BLURB">text</option>
+  <option value="FRAME">iframe</option>
+  <option value="EXTERNAL">external link</option>
+  <option value="TRIVIA">vault</option>
 </select>
-  
-<quill-editor [(ngModel)]="htmlText"
-  placeholder="Enter Text"
-  [modules]="quillConfig"
-  (onSelectionChanged)="onSelectionChanged($event)"
-  (onContentChanged)="onContentChanged($event)"></quill-editor>
+
+<div [ngSwitch]="pageConfig['type']">
+  <div *ngSwitchCase="'BLURB'"> 
+    <label>Rich Text</label>    
+    <!-- [(ngModel)]="pageConfig['content']" -->
+    <quill-editor #BlurbText
+      placeholder="Enter Text"
+      [modules]="quillConfig"></quill-editor>
+      <button (click)="addContentPage(BlurbText.value)">addPage</button>
+    </div>
+
+  <div *ngSwitchCase="'FRAME'"> 
+      <label>URL</label>    
+      <input #FrameUrl class="form-control" placeholder="URL"  >
+      <!-- [(ngModel)]="pageConfig['url']" -->
+      <button (click)="addFramePage(FrameUrl.value)">addPage</button>
+    </div>
+
+  <div *ngSwitchCase="'EXTERNAL'"> 
+      <label>Lead up</label>    
+      <!-- [(ngModel)]="pageConfig['content']" -->
+      <quill-editor #ExternalText
+        placeholder="Enter Text"
+        [modules]="quillConfig"
+        (onSelectionChanged)="onSelectionChanged($event)"
+        (onContentChanged)="onContentChanged($event)"></quill-editor>
+      <label>URL</label>    
+      <input #ExternalUrl class="form-control" placeholder="URL" >
+    </div>
+  <div *ngSwitchCase="'TRIVIA'"> 
+    <p>Trivia not completed</p>
+    </div>
+</div>
+
+<button (click)="addPage()">addPage</button>
+
+<pre>{{ pageConfig | json}}</pre>
+<pre>{{ config | json}}</pre>

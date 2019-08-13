@@ -12,7 +12,6 @@ import  {TASK_TYPE, CONTENT_SUB_TYPES, ContentTaskConfig,
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  htmlText ="<p>Testing</p>"
   
   TaskType = TASK_TYPE;
 

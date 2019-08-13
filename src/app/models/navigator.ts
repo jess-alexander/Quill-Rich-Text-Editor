@@ -108,7 +108,7 @@ export class QuestionnaireQuestion extends EiFieldLoaderConfig {
 }
 
 export class ContentTaskConfig {
-  pages: ContentTaskPageConfig[];
+  pages: Array<ContentTaskPageConfig>;
 }
 
 export enum CONTENT_SUB_TYPES {
@@ -123,6 +123,11 @@ export class ContentTaskPageConfig {
   // url?: string;
   // content?: string;
   // question?: QuestionnaireQuestion;
+}
+
+export class Content extends ContentTaskPageConfig {
+  type: CONTENT_SUB_TYPES.BLURB
+  content: string;
 }
 
 export class Frame extends ContentTaskPageConfig {
