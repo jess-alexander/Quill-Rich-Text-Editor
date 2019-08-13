@@ -122,16 +122,16 @@ export class ContentTaskPageConfig {
   // question?: QuestionnaireQuestion;
 }
 
-class Frame extends ContentTaskPageConfig {
+export class Frame extends ContentTaskPageConfig {
   type: CONTENT_SUB_TYPES.FRAME
   url: string
 }
-class External extends ContentTaskPageConfig { // potential for validating further
+export class External extends ContentTaskPageConfig { // potential for validating further
   type: CONTENT_SUB_TYPES.EXTERNAL
   url: string
   content: string
 }
-class Trivia extends ContentTaskPageConfig {
+export class Trivia extends ContentTaskPageConfig {
   type: CONTENT_SUB_TYPES.TRIVIA
   url?: string
   content: string
