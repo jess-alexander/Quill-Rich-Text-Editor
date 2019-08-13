@@ -1,10 +1,26 @@
+
+
+<label>Task-Type</label>
+  <select class="form-control"  [(ngModel)]="navTaskObject['type']"  >
+    <option value="TaskType.CONTENT">CONTENT</option>
+    <option value="TaskType.QUESTIONNAIRE">QUESTIONNAIRE</option>
+    <option value="TaskType.QUIZ">QUIZ</option>
+    <option value="TaskType.BGOCCUPATIONANALYSIS">BGOCCUPATIONANALYSIS</option>
+  </select>
+
+<div ng-switch="">
+
+</div>
+
+<!-- 
 <quill-editor [(ngModel)]="htmlText"
   placeholder="Enter Text"
   [modules]="quillConfig"
   (onSelectionChanged)="onSelectionChanged($event)"
-  (onContentChanged)="onContentChanged($event)"></quill-editor>
+  (onContentChanged)="onContentChanged($event)"></quill-editor> -->
 
 
 <div>
   <pre>{{htmlText}}</pre>
+  <pre>{{navTaskObject}}</pre>
 </div>

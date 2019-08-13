@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import {QuillInitializeService} from './services/quillInitialize.service';
 import 'quill-mention';
 import 'quill-emoji';
-import { navTypes } from './models';
+import  {TASK_TYPE, CONTENT_SUB_TYPES, ContentTaskConfig,
+         QuestionnaireTaskConfig
+         } from './models';
 
 @Component({
   selector: 'my-app',
@@ -11,16 +13,12 @@ import { navTypes } from './models';
 })
 export class AppComponent  {
   htmlText ="<p>Testing</p>"
-  hasFocus = false;
+  
+  TaskType = TASK_TYPE;
 
-  atValues = [
-    { id: 1, value: 'Fredrik Sundqvist', link: 'https://google.com' },
-    { id: 2, value: 'Patrik Sjölin' }
-  ];
-  hashValues = [
-    { id: 3, value: 'Fredrik Sundqvist 2' },
-    { id: 4, value: 'Patrik Sjölin 2' }
-  ]
+  ContentSubType = CONTENT_SUB_TYPES;
+
+  navTaskObject:DB_NavigatorTask;
 
   quillConfig={
     toolbar: {
@@ -86,23 +84,19 @@ export class AppComponent  {
   }
 }
 
-// enum TASK_TYPE {
-//   CONTENT                = 'CONTENT',
-//   QUIZ                   = 'QUIZ',
-//   QUESTIONNAIRE          = 'QUESTIONNAIRE',
-//   BG_OCCUPATION_ANALYSIS = 'BG_OCCUPATION_ANALYSIS'
-// }
-// // Task has contents of database item (withholding UUIDs)
-// class Task {
-//    stageId: string
-//    priority: number 
-//    title: string 
-//    excerpt: string 
-//    description: string 
-//    type: TASK_TYPE 
-//    duration: number 
-//    config?: ContentTaskConfig | QuestionnaireTaskConfig
-// }
+
+// Task has contents of database item (withholding UUIDs)
+class DB_NavigatorTask {
+   stageId: string
+   priority: number 
+   title: string 
+   excerpt: string 
+   description: string 
+   type: TASK_TYPE
+   duration: number 
+   config?: ContentTaskConfig | QuestionnaireTaskConfig
+}
+
 // class ContentTaskConfig{
 //   content: ContentTaskPageConfig[];
 // }
