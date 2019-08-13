@@ -23,11 +23,10 @@ export class AppComponent  {
       priority: 0,
       title: ''  ,
       description: '',
-      type: null,
+      type: TASK_TYPE.CONTENT,
       duration: 0
   };
 
- 
   constructor(
     private quillInitializeService: QuillInitializeService
   ){
@@ -35,7 +34,6 @@ export class AppComponent  {
   }
 
 }
-
 
 // Task has contents of database item (withholding UUIDs)
 class DB_NavigatorTask {
@@ -48,49 +46,21 @@ class DB_NavigatorTask {
    config?: ContentTaskConfig | QuestionnaireTaskConfig
 }
 
-// class ContentTaskConfig{
-//   content: ContentTaskPageConfig[];
-// }
-// enum CONTENT_SUB_TYPES {
-//   BLURB    = 'BLURB',
-//   FRAME    = 'FRAME',
-//   EXTERNAL = 'EXTERNAL',
-//   TRIVIA   = 'TRIVIA'
-// }
-// class ContentTaskPageConfig {
-//   type: CONTENT_SUB_TYPES;
-// }
-// class FrameTaskPage extends ContentTaskPageConfig {
-//   type: CONTENT_SUB_TYPES.FRAME
-//   url: string
-// }
-// class ExternalLinkTaskPage extends ContentTaskPageConfig { // potential for validating further
-//   type: CONTENT_SUB_TYPES.EXTERNAL
-//   url?: string
-//   richText?: string
-// }
-// class TriviaTaskPage extends ContentTaskPageConfig {
-//   type: CONTENT_SUB_TYPES.TRIVIA
-//   url?: string
-//   richText?: string
-//   question?: Question
-// }
+export class NavigatorTask {// extends BaseEntityWithModified {
+  friendlyId?: string;
+  title?: string;
+  description?: string;
+  excerpt?: string;
+  priority?: number;
 
-// class Question {
-//     key: string;
-//     title: string;
-//     options: Option[];
-//     description?: string;
-//     kind?: string;
-//     iconPosition?: string;
-//     columns?: number;
-//     multi?: boolean;
-// }
-// class Option {
-//     value: string;
-//     text: string;
-//     correct?: boolean;
-// }
-// class QuestionnaireTaskConfig{
-//   questions: Array<Question>
-// }
+  required?: boolean;
+  duration?: number;
+  type?: TASK_TYPE;
+  config?: ContentTaskConfig | QuestionnaireTaskConfig | QuizTaskConfig; // Configuration for the component loaded based on type
+
+  journey?: NavigatorJourney;
+  stageGroup?: NavigatorStageGroup;
+  stage?: NavigatorStage;
+
+  userStatus?: UserNavigatorStatus;
+}

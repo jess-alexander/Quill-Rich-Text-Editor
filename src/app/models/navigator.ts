@@ -28,13 +28,13 @@ export class NavigatorJourney {// extends BaseEntityWithModified {
   friendlyId?: string;
   title?: string;
   description?: string;
-  excerpt?: string;
   priority?: number;
 
   icon?: string;
   backgroundImage?: string;
   backgroundSky?: string;
   foregroundSky?: string;
+  config?: NavigatorJourneyConfig;
 
   stageGroups?: NavigatorStageGroup[];
 
@@ -44,8 +44,7 @@ export class NavigatorJourney {// extends BaseEntityWithModified {
 export class NavigatorStageGroup{// extends BaseEntityWithModified {
   friendlyId?: string;
   title?: string;
-  // description?: string;
-  excerpt?: string;
+  description?: string;
   priority?: number;
 
   journey?: NavigatorJourney;
@@ -70,7 +69,7 @@ export class NavigatorStage {// extends BaseEntityWithModified {
 export class NavigatorTask {// extends BaseEntityWithModified {
   friendlyId?: string;
   title?: string;
-  excerpt?: string;
+  description?: string;
   priority?: number;
 
   required?: boolean;
@@ -83,6 +82,10 @@ export class NavigatorTask {// extends BaseEntityWithModified {
   stage?: NavigatorStage;
 
   userStatus?: UserNavigatorStatus;
+}
+
+export class NavigatorJourneyConfig {
+  questionnaire: QuestionnaireTaskConfig;
 }
 
 export class EiSelectOption {
@@ -126,7 +129,7 @@ export class Frame extends ContentTaskPageConfig {
   type: CONTENT_SUB_TYPES.FRAME
   url: string
 }
-export class External extends ContentTaskPageConfig { // potential for validating further
+export class External extends ContentTaskPageConfig {
   type: CONTENT_SUB_TYPES.EXTERNAL
   url: string
   content: string

@@ -8,12 +8,42 @@ import { ContentTaskConfig } from '../models/navigator';
 })
 export class ContentComponent implements OnInit {
   @Output() completeConfig = new EventEmitter();
-  constructor() { }
+  pageConfig = { 'type':''};
+  config = {};
 
-  ngOnInit() {
+  constructor() { }
+  ngOnInit() { }
+
+ addPage(body: string){
+    if(!this.config['content']){
+      this.config['content'] = []; 
+      this.appendPage(body);
+    }else{
+      if(!this.config['content'].includes(this.pageConfig)){
+        this.appendPage(body)
+      }else {
+        alert("duplicate content detected");
+      }
+    } 
   }
 
+  appendPage(body){
+    if(!!body){
+      this.pageConfig['body'] = body.replace(/'/g, "\'");
+    }
+    this.config['content'].push(this.pageConfig)
+    this.pageConfig = { 'type':''};
+  }
 
+  clear(){
+    this.config = {};
+    this.pageConfig = { 'type':''};
+  }
+  
+
+////////////////////////////////////////////////
+// QUILL CONFIG AND STUFFS
+////////////////////////////////////////////////
   onSelectionChanged = (event) =>{
     if(event.oldRange == null){
       this.onFocus();
