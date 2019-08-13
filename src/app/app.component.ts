@@ -18,7 +18,14 @@ export class AppComponent  {
 
   ContentSubType = CONTENT_SUB_TYPES;
 
-  navTaskObject:DB_NavigatorTask;
+  navTaskObject:DB_NavigatorTask = {
+      stageId: '',
+      priority: 0,
+      title: ''  ,
+      description: '',
+      type: null,
+      duration: 0
+  };
 
   quillConfig={
     toolbar: {
@@ -90,7 +97,6 @@ class DB_NavigatorTask {
    stageId: string
    priority: number 
    title: string 
-   excerpt: string 
    description: string 
    type: TASK_TYPE
    duration: number 

@@ -2,14 +2,18 @@
 
 <label>Task-Type</label>
   <select class="form-control"  [(ngModel)]="navTaskObject['type']"  >
-    <option value="TaskType.CONTENT">CONTENT</option>
-    <option value="TaskType.QUESTIONNAIRE">QUESTIONNAIRE</option>
-    <option value="TaskType.QUIZ">QUIZ</option>
-    <option value="TaskType.BGOCCUPATIONANALYSIS">BGOCCUPATIONANALYSIS</option>
+    <option value="CONTENT">CONTENT</option>
+    <option value="QUESTIONNAIRE">QUESTIONNAIRE</option>
+    <option value="QUIZ">QUIZ</option>
+    <option value="BGOCCUPATIONANALYSIS">BG_OCCUPATION_ANALYSIS</option>
   </select>
 
-<div ng-switch="">
-
+<div [ngSwitch]="navTaskObject['type']">
+  <div *ngSwitchCase="'CONTENT'"> content </div>
+  <div *ngSwitchCase="'QUESTIONNAIRE'"> questionnaire </div>
+  <div *ngSwitchCase="'QUIZ'"> quiz </div>
+  <div *ngSwitchCase="'BGOCCUPATIONANALYSIS'"> BG_OCCUPATION_ANALYSIS </div>
+  <div *ngSwitchDefault>...</div>
 </div>
 
 <!-- 
@@ -22,5 +26,5 @@
 
 <div>
   <pre>{{htmlText}}</pre>
-  <pre>{{navTaskObject}}</pre>
+  <pre>{{navTaskObject | json}}</pre>
 </div>
