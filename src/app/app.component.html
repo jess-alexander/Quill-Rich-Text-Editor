@@ -9,19 +9,15 @@
   </select>
 
 <div [ngSwitch]="navTaskObject['type']">
-  <div *ngSwitchCase="'CONTENT'"> content </div>
+  <div *ngSwitchCase="'CONTENT'"> 
+    <content-config (completeConfig)="updateTaskObject($event)"> </content-config>
+  </div>
   <div *ngSwitchCase="'QUESTIONNAIRE'"> questionnaire </div>
   <div *ngSwitchCase="'QUIZ'"> quiz </div>
   <div *ngSwitchCase="'BGOCCUPATIONANALYSIS'"> BG_OCCUPATION_ANALYSIS </div>
   <div *ngSwitchDefault>...</div>
 </div>
 
-<!-- 
-<quill-editor [(ngModel)]="htmlText"
-  placeholder="Enter Text"
-  [modules]="quillConfig"
-  (onSelectionChanged)="onSelectionChanged($event)"
-  (onContentChanged)="onContentChanged($event)"></quill-editor> -->
 
 
 <div>

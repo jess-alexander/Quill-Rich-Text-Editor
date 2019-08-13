@@ -1,0 +1,18 @@
+<p>
+content works!
+</p>
+
+  <label>Task-Type</label>
+  <select class="form-control"  [(ngModel)]="task['type']"  >
+    <option value="blurb">text</option>
+    <option value="iframe">iframe</option>
+    <option value="external">external link</option>
+    <option value="vault">vault</option>
+  </select>
+
+  
+<quill-editor [(ngModel)]="htmlText"
+  placeholder="Enter Text"
+  [modules]="quillConfig"
+  (onSelectionChanged)="onSelectionChanged($event)"
+  (onContentChanged)="onContentChanged($event)"></quill-editor>
