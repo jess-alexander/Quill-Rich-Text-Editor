@@ -1,6 +1,5 @@
 
 
-
 <div class="form-group">
   <label for="name" class="col-lg-4">Task-Type:</label>
   <div class="col-lg-8">
@@ -41,7 +40,9 @@
   <div *ngSwitchCase="'CONTENT'"> 
     <content-config (updateConfig)="updateTaskObject($event)"> </content-config>
   </div>
-  <div *ngSwitchCase="'QUESTIONNAIRE'"> questionnaire </div>
+  <div *ngSwitchCase="'QUESTIONNAIRE'"> 
+    <questionnaire (updateConfig)="updateTaskObject($event)"></questionnaire>
+    </div>
   <div *ngSwitchCase="'QUIZ'"> quiz </div>
   <div *ngSwitchCase="'BGOCCUPATIONANALYSIS'"> BG_OCCUPATION_ANALYSIS </div>
   <div *ngSwitchDefault>...</div>

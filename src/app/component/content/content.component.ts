@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ContentTaskConfig, Content, Frame, External, Trivia, CONTENT_SUB_TYPES } from '../models/navigator';
+import { ContentTaskConfig, Content, Frame, External, Trivia, CONTENT_SUB_TYPES } from '../../models/navigator';
 
 @Component({
   selector: 'content-config',
@@ -16,10 +16,7 @@ export class ContentComponent implements OnInit {
   
   @Output() updateConfig = new EventEmitter();
   pageType = 'BLURB';
-  richText = '';
-  // pgConfig: AcceptedType = {type: CONTENT_SUB_TYPES.BLURB};
   pageConfig = {};
-  // pageConfig = { 'type':'BLURB'};
   config;
 
   constructor() { }
