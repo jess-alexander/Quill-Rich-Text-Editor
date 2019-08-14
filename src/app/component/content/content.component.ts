@@ -7,12 +7,6 @@ import { ContentTaskConfig, Content, Frame, External, Trivia, CONTENT_SUB_TYPES 
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
-  /*
-  BLURB    = 'BLURB',
-  FRAME    = 'FRAME',
-  EXTERNAL = 'EXTERNAL',
-  TRIVIA   = 'TRIVIA'
-*/
   
   @Output() updateConfig = new EventEmitter();
   pageType = 'BLURB';
@@ -23,25 +17,18 @@ export class ContentComponent implements OnInit {
   ngOnInit() { }
 
   addPage(){
-    // if(!this.pageDefined())
-    //   return;
+    
     if(!this.config){
       this.config = {'pages':[]}; 
       this.appendPage();
     }else{
-      // if(!this.config['pages'].includes(this.pageConfig)){
-        this.appendPage()
-      // }else {
-        // alert("duplicate content detected");
-      // }
+      this.appendPage();
     } 
   }
 
   appendPage(){
-    // const page = this.validatePage();
-    const page = this.pageConfig;
-    if(page !== null){
-      this.config['pages'].push(page);
+    if(this.pageConfig !== null){
+      this.config['pages'].push(this.pageConfig);
       this.updateConfig.emit(this.config);
       this.pageConfig = {};
     }
@@ -52,15 +39,15 @@ export class ContentComponent implements OnInit {
     this.pageConfig = {};
   }
 
-  blurbExists(): boolean{
-    return !!this.pageConfig['content'];
-  }
-  urlExists(): boolean{
-    return !!this.pageConfig['url'];
-  }
-  questionsExist(): boolean{
-    return !!this.pageConfig['question'];
-  }
+  // blurbExists(): boolean{
+  //   return !!this.pageConfig['content'];
+  // }
+  // urlExists(): boolean{
+  //   return !!this.pageConfig['url'];
+  // }
+  // questionsExist(): boolean{
+  //   return !!this.pageConfig['question'];
+  // }
 
   // validatePage(): AcceptedType{
     

@@ -94,12 +94,18 @@ export class EiSelectOption {
   value: any;
   class?: string;
   icon?: string;
+  constructor(o:any){
+    
+  }
 }
 export class EiFieldLoaderConfig{ // actually from EiFieldLoaderConfig
   type: string;
   title?: string;
   description?: string;
   options?: EiSelectOption[];
+  constructor(q: any){
+
+  }
 }
 export class QuestionnaireTaskConfig extends EiFieldLoaderConfig { }
 export class QuizTaskConfig extends EiFieldLoaderConfig { }
