@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {QuillInitializeService} from './services/quillInitialize.service';
 import 'quill-mention';
 import 'quill-emoji';
-import  {TASK_TYPE, CONTENT_SUB_TYPES, ContentTaskConfig,
+import  {TASK_TYPE, CONTENT_SUB_TYPES, ContentTaskConfig, NavigatorTask,
          QuestionnaireTaskConfig
          } from './models';
 
@@ -22,13 +22,13 @@ export class AppComponent  {
       description: '',
       priority: 0,
       duration: 0,
-      type: TASK_TYPE.CONTENT,
-      config:{},
+      type: TASK_TYPE.QUESTIONNAIRE,
 
       journeyTitle: '',
       stageGroupTitle: '',
       stageTitle: '',
       
+      config: undefined,
   };
 
   /*
@@ -58,34 +58,4 @@ export class AppComponent  {
     this.navTaskObject['config'] = event;
   }
 
-}
-
-// Task has contents of database item (withholding UUIDs)
-class DB_NavigatorTask {
-   stageId: string
-   priority: number 
-   title: string 
-   description: string 
-   type: TASK_TYPE
-   duration: number 
-   config?: ContentTaskConfig | QuestionnaireTaskConfig
-}
-
-export class NavigatorTask {// extends BaseEntityWithModified {
-  friendlyId?: string;
-  title?: string;
-  description?: string;
-  excerpt?: string;
-  priority?: number;
-
-  required?: boolean;
-  duration?: number;
-  type?: TASK_TYPE;
-  config?: ContentTaskConfig | QuestionnaireTaskConfig | QuizTaskConfig; // Configuration for the component loaded based on type
-
-  journey?: NavigatorJourney;
-  stageGroup?: NavigatorStageGroup;
-  stage?: NavigatorStage;
-
-  userStatus?: UserNavigatorStatus;
 }

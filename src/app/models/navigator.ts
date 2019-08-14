@@ -77,9 +77,9 @@ export class NavigatorTask {// extends BaseEntityWithModified {
   type?: TASK_TYPE;
   config?: ContentTaskConfig | QuestionnaireTaskConfig | QuizTaskConfig; // Configuration for the component loaded based on type
 
-  journey?: NavigatorJourney;
-  stageGroup?: NavigatorStageGroup;
-  stage?: NavigatorStage;
+  // journey?: NavigatorJourney;
+  // stageGroup?: NavigatorStageGroup;
+  // stage?: NavigatorStage;
 
   journeyTitle?: string;
   stageGroupTitle?: string;

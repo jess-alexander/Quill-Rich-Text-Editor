@@ -1,3 +1,61 @@
-  <label>URL</label>    
-  <input [(ngModel)]="pageConfig['url']" class="form-control" placeholder="URL"  >
-  <button (click)="addPage()">addPage</button>
+<!-- Build Question Object -->
+  <label>Question</label>    
+  <input [(ngModel)]="question['title']" class="form-control" placeholder="Question"  >
+
+  
+  <div class = "container">
+    <div class="row">
+      <div class="col-sm">
+        <!-- <label>Option</label> 
+        <label>Correct</label> -->
+      <div class="col-sm">
+        <input [(ngModel)]="answer['text']" class="form-control" placeholder="Answer"  >
+        <input [(ngModel)]="answer['correct']" class="form-control" 
+                placeholder="Answer"  type="checkbox">
+      </div>
+      <div class="col-sm">
+        <input [(ngModel)]="answer['text']" class="form-control" placeholder="Answer"  >
+        <input [(ngModel)]="answer['correct']" class="form-control" 
+                placeholder="Answer"  type="checkbox">
+      </div>
+      <div class="col-sm">
+        <input [(ngModel)]="answer['text']" class="form-control" placeholder="Answer"  >
+        
+        <input [(ngModel)]="answer['correct']" class="form-control" 
+                placeholder="Answer"  type="checkbox">
+          
+      </div>
+    </div>
+  </div>  
+  
+
+  <button (click)="addQuestion()">Question</button>
+
+
+
+
+
+  <!-- 
+    [
+      {
+        key: 'q1',
+        title: 'How many of the following answers are incorrect?',
+        options: [
+          { value: '1' , text: 'Only one is incorrect'},
+          { value: '2' , text: 'Two of the answers are not correct'},
+          { value: '3' , text: 'Three answers are incorrect', correct: true},
+          { value: '4' , text: 'All the answers are wrong'},
+        ]
+      },
+      {
+        key: 'q2',
+        title: 'Which number is higher than 4,500?',
+        options: [
+          { value: '1' , text: '41'},
+          { value: '2' , text: '1 x 10^4', correct: true},
+          { value: '3' , text: '4,499'},
+          { value: '4' , text: '8 x 10^-8'},
+        ]
+      }
+    ]
+   -->

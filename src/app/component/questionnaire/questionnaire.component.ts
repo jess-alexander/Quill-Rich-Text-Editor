@@ -8,13 +8,23 @@ import { ContentTaskConfig, Content, Frame, External, Trivia, CONTENT_SUB_TYPES 
 })
 export class QuestionnaireComponent implements OnInit {
 
-
   @Output() updateConfig = new EventEmitter();
-  config;
+  questionArr = [];
+  question = {};
+  answer = {};
+  config = {};
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  addQuestion(){
+    const idx = 1;
+    this.answer['value'] = idx;
+    this.question['options']
+    this.questionArr.push(this.question);
+    this.question = {}
   }
 
 }
