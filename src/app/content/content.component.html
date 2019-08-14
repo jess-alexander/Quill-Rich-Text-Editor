@@ -7,7 +7,7 @@
   <option value="TRIVIA">trivia</option>
 </select>
 
-<div [ngSwitch]="pageConfig['type']">
+<div [ngSwitch]="pageConfig['type']" >
   <div *ngSwitchCase="'BLURB'"> 
     <label>Rich Text</label>    
     <quill-editor [(ngModel)]="pageConfig['content']"
@@ -38,7 +38,6 @@
     </div>
 </div>
 
-<button (click)="clear()">clear</button>
-
-<pre>{{ pageConfig | json}}</pre>
-<pre>{{ config | json}}</pre>
+<!-- <button (click)="clear()">clearPages</button> -->
+<!-- <pre>{{ pageConfig | json}}</pre> -->
+<!-- <pre>{{ config | json}}</pre> -->

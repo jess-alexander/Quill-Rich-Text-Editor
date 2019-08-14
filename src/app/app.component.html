@@ -1,13 +1,41 @@
 
-<label>Task-Type</label>
-  <select class="form-control"  [(ngModel)]="navTaskObject['type']"  >
-    <option value="CONTENT">CONTENT</option>
-    <option value="QUESTIONNAIRE">QUESTIONNAIRE</option>
-    <option value="QUIZ">QUIZ</option>
-    <option value="BGOCCUPATIONANALYSIS">BG_OCCUPATION_ANALYSIS</option>
-  </select>
 
-  
+
+<div class="form-group">
+  <label for="name" class="col-lg-4">Task-Type:</label>
+  <div class="col-lg-8">
+    <select class="form-control"  [(ngModel)]="navTaskObject['type']" (change)='resetConfig()' >
+      <option value="CONTENT">CONTENT</option>
+      <option value="QUESTIONNAIRE">QUESTIONNAIRE</option>
+      <option value="QUIZ">QUIZ</option>
+      <option value="BGOCCUPATIONANALYSIS">BG_OCCUPATION_ANALYSIS</option>
+    </select>
+  </div>
+  <label for="stageId" class="col-lg-4">stageId:</label>
+  <div class="col-lg-8">
+    <input [(ngModel)]="navTaskObject['stageId']" class="form-control" placeholder="stageId" #stageId >
+  </div>
+
+  <label for="priority" class="col-lg-4">priority:</label>
+    <div class="col-lg-8">
+  <input [(ngModel)]="navTaskObject['priority']" class="form-control" placeholder="priority" #priority >
+  </div>
+
+  <label for="tasktitle" class="col-lg-4">title:</label>
+  <div class="col-lg-8">
+    <input [(ngModel)]="navTaskObject['title']" class="form-control" placeholder="title"   #tasktitle>
+  </div>
+
+  <label for="description" class="col-lg-4">description:</label>
+  <div class="col-lg-8">
+    <input [(ngModel)]="navTaskObject['description']" class="form-control" placeholder="description" #description >
+  </div>
+
+  <label for="duration" class="col-lg-4">duration:</label>
+  <div class="col-lg-8">
+    <input [(ngModel)]="navTaskObject['duration']" class="form-control" placeholder="duration" #duration >
+  </div>
+</div>
 
 <div [ngSwitch]="navTaskObject['type']">
   <div *ngSwitchCase="'CONTENT'"> 

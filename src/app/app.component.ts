@@ -28,13 +28,14 @@ export class AppComponent  {
 
   constructor(
     private quillInitializeService: QuillInitializeService
-  ){
+  ){}
 
+  resetConfig(){
+    this.navTaskObject['config'] = undefined;    
   }
-
   updateTaskObject(event){
     // console.log(event);
-    navTaskObject[config] = event;
+    this.navTaskObject['config'] = event;
   }
 
 }
