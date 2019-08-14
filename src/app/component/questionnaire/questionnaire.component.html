@@ -1,39 +1,28 @@
-<!-- Build Question Object -->
-  <label>Question</label>    
-  <input [(ngModel)]="question['title']" class="form-control" placeholder="Question"  >
 
-  
-  <div class = "container">
-    <div class="row">
-      <div class="col-sm">
-        <!-- <label>Option</label> 
-        <label>Correct</label> -->
-      <div class="col-sm">
-        <input [(ngModel)]="answer['text']" class="form-control" placeholder="Answer"  >
-        <input [(ngModel)]="answer['correct']" class="form-control" 
-                placeholder="Answer"  type="checkbox">
-      </div>
-      <button (click)="addOption()">AddOption</button>
-      <!-- <div class="col-sm">
-        <input [(ngModel)]="answer['text']" class="form-control" placeholder="Answer"  >
-        <input [(ngModel)]="answer['correct']" class="form-control" 
-                placeholder="Answer"  type="checkbox">
-      </div>
-      <div class="col-sm">
-        <input [(ngModel)]="answer['text']" class="form-control" placeholder="Answer"  >
-        
-        <input [(ngModel)]="answer['correct']" class="form-control" 
-                placeholder="Answer"  type="checkbox">
-          
-      </div> -->
-    </div>
-  </div>  
-  
+<br><br>
+  <input [(ngModel)]="question['title']" placeholder="Question" #question>
+  <span>correct</span>
+  <br>
+  <input [(ngModel)]="answer[1]['text']"  placeholder="Answer" class="answer">
+  <input [(ngModel)]="answer[1]['correct']" type="radio" name="correctAnswer">
+  <br>
+  <input [(ngModel)]="answer[2]['text']"  placeholder="Answer" class="answer">
+  <input [(ngModel)]="answer[2]['correct']" type="radio" name="correctAnswer">
+  <br>
+  <input [(ngModel)]="answer[3]['text']"  placeholder="Answer" class="answer">
+  <input [(ngModel)]="answer[3]['correct']" type="radio" name="correctAnswer">
+  <br>
+  <input [(ngModel)]="answer[4]['text']"  placeholder="Answer" class="answer">
+  <input [(ngModel)]="answer[4]['correct']" type="radio" name="correctAnswer">
+  <br>
+<br><br>
 
-  <button (click)="addQuestion()">Question</button>
+  <button (click)="addQuestion()"> Add Another Question</button>
+
+  <button (click)="addQuestion()">COMPLETE</button>
 
 
-
+<pre>{{answer | json}}</pre>
 
 
   <!-- 

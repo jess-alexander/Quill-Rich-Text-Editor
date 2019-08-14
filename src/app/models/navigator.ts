@@ -103,6 +103,7 @@ export class EiSelectOption {
   }
 }
 export class EiFieldLoaderConfig{ // actually from EiFieldLoaderConfig
+  key: string; // MUST BE **unique within journey ** LOWERCSASE WITH DASHES
   type: string;
   title?: string;
   description?: string;

@@ -13,9 +13,9 @@ import  {TASK_TYPE, CONTENT_SUB_TYPES, ContentTaskConfig, NavigatorTask,
 })
 export class AppComponent  {
   
-  TaskType = TASK_TYPE;
-
-  ContentSubType = CONTENT_SUB_TYPES;
+  // TaskType = TASK_TYPE;
+  // ContentSubType = CONTENT_SUB_TYPES;
+   showJSON = false;
 
   navTaskObject: NavigatorTask = {
       title: ''  ,
@@ -52,10 +52,12 @@ export class AppComponent  {
 
   resetConfig(){
     this.navTaskObject['config'] = undefined;    
+    this.showJSON = false;
   }
   updateTaskObject(event){
     // console.log(event);
     this.navTaskObject['config'] = event;
+    this.showJSON = true;
   }
 
 }

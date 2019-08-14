@@ -23,7 +23,7 @@ export class ContentComponent implements OnInit {
       this.appendPage();
     }else{
       this.appendPage();
-    } 
+    }
   }
 
   appendPage(){
@@ -34,11 +34,6 @@ export class ContentComponent implements OnInit {
     }
   }
   
-  clear() {
-    this.config = undefined;
-    this.pageConfig = {};
-  }
-
   // blurbExists(): boolean{
   //   return !!this.pageConfig['content'];
   // }
