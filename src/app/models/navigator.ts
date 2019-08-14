@@ -67,7 +67,7 @@ export class NavigatorStage {// extends BaseEntityWithModified {
 }
 
 export class NavigatorTask {// extends BaseEntityWithModified {
-  friendlyId?: string;
+  // friendlyId?: string;
   title?: string;
   description?: string;
   priority?: number;
@@ -80,6 +80,10 @@ export class NavigatorTask {// extends BaseEntityWithModified {
   journey?: NavigatorJourney;
   stageGroup?: NavigatorStageGroup;
   stage?: NavigatorStage;
+
+  journeyTitle?: string;
+  stageGroupTitle?: string;
+  stageTitle?: string;
 
   userStatus?: UserNavigatorStatus;
 }

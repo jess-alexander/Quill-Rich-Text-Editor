@@ -1,15 +1,6 @@
 
-
+<!-- 
 <div class="form-group">
-  <label for="name" class="col-lg-4">Task-Type:</label>
-  <div class="col-lg-8">
-    <select class="form-control"  [(ngModel)]="navTaskObject['type']" (change)='resetConfig()' >
-      <option value="CONTENT">CONTENT</option>
-      <option value="QUESTIONNAIRE">QUESTIONNAIRE</option>
-      <option value="QUIZ">QUIZ</option>
-      <option value="BGOCCUPATIONANALYSIS">BG_OCCUPATION_ANALYSIS</option>
-    </select>
-  </div>
   <label for="journey" class="col-lg-4">journeyTitle:</label>
   <div class="col-lg-8">
     <input [(ngModel)]="navTaskObject['journey']" class="form-control" placeholder="journey" #journey >
@@ -42,8 +33,17 @@
   <div class="col-lg-8">
     <input [(ngModel)]="navTaskObject['duration']" class="form-control" placeholder="duration" #duration >
   </div>
-</div>
+</div> -->
 
+<label for="name" class="col-lg-4">Task-Type:</label>
+<div class="col-lg-8">
+  <select class="form-control"  [(ngModel)]="navTaskObject['type']" (change)='resetConfig()' >
+    <option value="CONTENT">CONTENT</option>
+    <option value="QUESTIONNAIRE">QUESTIONNAIRE</option>
+    <option value="QUIZ">QUIZ</option>
+    <option value="BGOCCUPATIONANALYSIS">BG_OCCUPATION_ANALYSIS</option>
+  </select>
+</div>
 <div [ngSwitch]="navTaskObject['type']">
   <div *ngSwitchCase="'CONTENT'"> 
     <content-config (updateConfig)="updateTaskObject($event)"> </content-config>

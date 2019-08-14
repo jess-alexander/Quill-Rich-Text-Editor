@@ -17,14 +17,34 @@ export class AppComponent  {
 
   ContentSubType = CONTENT_SUB_TYPES;
 
-  navTaskObject:DB_NavigatorTask = {
-      stageId: '',
-      priority: 0,
+  navTaskObject: NavigatorTask = {
       title: ''  ,
       description: '',
+      priority: 0,
+      duration: 0,
       type: TASK_TYPE.CONTENT,
-      duration: 0
+      config:{},
+
+      journeyTitle: '',
+      stageGroupTitle: '',
+      stageTitle: '',
+      
   };
+
+  /*
+  title?: string;
+  description?: string;
+  priority?: number;
+
+  required?: boolean;
+  duration?: number;
+  type?: TASK_TYPE;
+  config?: ContentTaskConfig | QuestionnaireTaskConfig | QuizTaskConfig; // Configuration for the component loaded based on type
+
+  journey?: NavigatorJourney;
+  stageGroup?: NavigatorStageGroup;
+  stage?: NavigatorStage;
+  */
 
   constructor(
     private quillInitializeService: QuillInitializeService
