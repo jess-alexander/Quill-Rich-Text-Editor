@@ -13,15 +13,23 @@ export class QuestionnaireComponent implements OnInit {
   question = {};
   answer = {};
   config = {};
+  indx = 1;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  addOption(){
+    if(!!this.answer['text'] && !!this.question['title']){
+      this.answer['value'] = this.indx;
+      this.question['options'] = this.answer;
+      this.indx++;
+    }
+  }
+  
   addQuestion(){
-    const idx = 1;
-    this.answer['value'] = idx;
+    
     this.question['options']
     this.questionArr.push(this.question);
     this.question = {}
