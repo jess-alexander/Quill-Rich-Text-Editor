@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ContentTaskConfig, Content, Frame, External, Trivia } from '../models/navigator';
+import { ContentTaskConfig, Content, Frame, External, Trivia, CONTENT_SUB_TYPES } from '../models/navigator';
 
 @Component({
   selector: 'content-config',
@@ -15,20 +15,21 @@ export class ContentComponent implements OnInit {
 */
   
   @Output() completeConfig = new EventEmitter();
-  pageType = {};
-  pageConfig: Content | Frame | External | Trivia;
-  
+  pageType = 'BLURB';
+  richText = '';
+  // pgConfig: AcceptedType = {type: CONTENT_SUB_TYPES.BLURB};
+  pageConfig = {};
   // pageConfig = { 'type':'BLURB'};
   config: ContentTaskConfig;
 
   constructor() { }
   ngOnInit() { }
 
- addPage(){
-    if(!this.pageDefined())
-      return;
-    if(!this.config['pages']){
-      this.config['pages'] = []; 
+  addPage(){
+    // if(!this.pageDefined())
+    //   return;
+    if(!this.config){
+      this.config = {'pages':[]}; 
       this.appendPage();
     }else{
       // if(!this.config['pages'].includes(this.pageConfig)){
@@ -40,24 +41,30 @@ export class ContentComponent implements OnInit {
   }
 
   appendPage(){
-    this.config['content'].push(this.pageConfig)
-    this.pageConfig = { 'type':''};
-  }
-  pageDefined(): boolean{
-    return this.pageConfig === { 'type':'BLURB'};
-  }
-  clear(){
-    this.config = undefined;
-    this.pageConfig = { 'type':'BLURB'};
-  }
-
-  addContentPage(content: string){
-    console.log(content);
-  }
-  addFramePage(url:string){
-    console.log(url);
+    const page: AcceptedType = this.validatePage();
+    this.config['pages'].push(page);
+    this.pageConfig = {};
   }
   
+  validatePage(): AcceptedType{
+    
+    if(this.blurbExists() && !this.urlExists() && !this.questionsExist())
+      return new Content(this.pageConfig);
+  }
+  clear() {
+    this.config = undefined;
+    this.pageConfig = {};
+  }
+
+  blurbExists(): boolean{
+    return !!this.pageConfig['content'];
+  }
+  urlExists(): boolean{
+    return !!this.pageConfig['url'];
+  }
+  questionsExist(): boolean{
+    return !!this.pageConfig['question'];
+  }
 
 ////////////////////////////////////////////////
 // QUILL CONFIG AND STUFFS
@@ -115,3 +122,5 @@ export class ContentComponent implements OnInit {
     }
   }
 }
+
+type AcceptedType = Content | Frame | External | Trivia;

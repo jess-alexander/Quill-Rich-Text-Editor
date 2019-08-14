@@ -120,24 +120,41 @@ export enum CONTENT_SUB_TYPES {
 
 export class ContentTaskPageConfig {
   type: CONTENT_SUB_TYPES;
-  // url?: string;
-  // content?: string;
-  // question?: QuestionnaireQuestion;
+  url?: string;
+  content?: string;
+  question?: QuestionnaireQuestion;
 }
 
 export class Content extends ContentTaskPageConfig {
   type: CONTENT_SUB_TYPES.BLURB
   content: string;
+  constructor(p: any){
+    super();
+    p.type = this.type;
+    p.content = this.content;
+  }
 }
 
 export class Frame extends ContentTaskPageConfig {
   type: CONTENT_SUB_TYPES.FRAME
   url: string
+  constructor(p: any){
+    super();
+    p.type = this.type;
+    p.url = this.url;
+  }
 }
+
 export class External extends ContentTaskPageConfig {
   type: CONTENT_SUB_TYPES.EXTERNAL
   url: string
   content: string
+  constructor(p: any){
+    super();
+    p.type = this.type;
+    p.content = this.content;
+    p.url = this.url;
+  }
 }
 export class Trivia extends ContentTaskPageConfig {
   type: CONTENT_SUB_TYPES.TRIVIA
