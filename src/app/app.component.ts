@@ -32,6 +32,11 @@ export class AppComponent  {
 
   }
 
+  updateTaskObject(event){
+    // console.log(event);
+    navTaskObject[config] = event;
+  }
+
 }
 
 // Task has contents of database item (withholding UUIDs)

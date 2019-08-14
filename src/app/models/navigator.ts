@@ -123,34 +123,41 @@ export class ContentTaskPageConfig {
   url?: string;
   content?: string;
   question?: QuestionnaireQuestion;
+  constructor(p: any){
+    p.type = this.type;
+    if(!!p.url)
+      p.url = this.url;
+    if(!!p.content)  
+      p.content = this.content;
+  }
 }
-
-export class Content extends ContentTaskPageConfig {
+// VALIDATION HAPPENING ON CONTENT COMPONENT
+export class Content {//extends ContentTaskPageConfig {
   type: CONTENT_SUB_TYPES.BLURB
   content: string;
   constructor(p: any){
-    super();
+    // super(p);
     p.type = this.type;
     p.content = this.content;
   }
 }
 
-export class Frame extends ContentTaskPageConfig {
+export class Frame {//extends ContentTaskPageConfig {
   type: CONTENT_SUB_TYPES.FRAME
   url: string
   constructor(p: any){
-    super();
+    // super(p);
     p.type = this.type;
     p.url = this.url;
   }
 }
 
-export class External extends ContentTaskPageConfig {
+export class External{//} extends ContentTaskPageConfig {
   type: CONTENT_SUB_TYPES.EXTERNAL
   url: string
   content: string
   constructor(p: any){
-    super();
+    // super(p);
     p.type = this.type;
     p.content = this.content;
     p.url = this.url;

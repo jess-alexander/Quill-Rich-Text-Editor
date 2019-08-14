@@ -14,13 +14,13 @@ export class ContentComponent implements OnInit {
   TRIVIA   = 'TRIVIA'
 */
   
-  @Output() completeConfig = new EventEmitter();
+  @Output() updateConfig = new EventEmitter();
   pageType = 'BLURB';
   richText = '';
   // pgConfig: AcceptedType = {type: CONTENT_SUB_TYPES.BLURB};
   pageConfig = {};
   // pageConfig = { 'type':'BLURB'};
-  config: ContentTaskConfig;
+  config;
 
   constructor() { }
   ngOnInit() { }
@@ -41,16 +41,15 @@ export class ContentComponent implements OnInit {
   }
 
   appendPage(){
-    const page: AcceptedType = this.validatePage();
-    this.config['pages'].push(page);
-    this.pageConfig = {};
+    // const page = this.validatePage();
+    const page = this.pageConfig;
+    if(page !== null){
+      this.config['pages'].push(page);
+      this.updateConfig.emit(this.config);
+      this.pageConfig = {};
+    }
   }
   
-  validatePage(): AcceptedType{
-    
-    if(this.blurbExists() && !this.urlExists() && !this.questionsExist())
-      return new Content(this.pageConfig);
-  }
   clear() {
     this.config = undefined;
     this.pageConfig = {};
@@ -65,6 +64,25 @@ export class ContentComponent implements OnInit {
   questionsExist(): boolean{
     return !!this.pageConfig['question'];
   }
+
+  // validatePage(): AcceptedType{
+    
+  //   if(this.blurbExists() && !this.urlExists() && !this.questionsExist())
+  //     { console.log(new Content(this.pageConfig));
+  //       return new Content(this.pageConfig);}
+    
+  //   if(this.blurbExists() && this.urlExists() && !this.questionsExist())
+  //     return new External(this.pageConfig);
+    
+  //   if(!this.blurbExists() && this.urlExists() && !this.questionsExist())
+  //     return new Frame(this.pageConfig);
+    
+  //   // if(!this.blurbExists() && this.urlExists() && this.questionsExist())
+  //   //   return new Trivia(this.pageConfig);
+  //   alert("check your work, page does not match required type");
+  //   return null;
+      
+  // }
 
 ////////////////////////////////////////////////
 // QUILL CONFIG AND STUFFS
