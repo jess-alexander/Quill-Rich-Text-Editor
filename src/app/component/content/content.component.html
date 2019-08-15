@@ -38,10 +38,6 @@
     </div>
   <div *ngSwitchCase="'TRIVIA'"> 
     <trivia (appendQuestion)="appendQuestion($event)" ></trivia>
-    <!-- <label>Closing</label> -->
-    <quill-editor [(ngModel)]="pageConfig['content']"
-      placeholder="Enter Text"
-      [modules]="quillConfig"></quill-editor>
     </div>
 </div>
 

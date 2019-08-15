@@ -11,8 +11,7 @@ export class ContentComponent implements OnInit {
   
   @Output() updateConfig  = new EventEmitter();
   quillConfig = quillConfig;
-  pageType = 'TRIVIA';
-  pageConfig = {};
+  pageConfig = {'type': 'TRIVIA'};
   config = {};
 
   constructor() { }
@@ -32,12 +31,12 @@ export class ContentComponent implements OnInit {
     if(this.pageConfig !== null){
       this.config['pages'].push(this.pageConfig);
       this.updateConfig.emit(this.config);
-      this.pageConfig = {};
+      this.pageConfig = {'type': 'TRIVIA'};
     }
   }
 
   appendQuestion(event){
-    // this.config['question'] = {};
+    console.log(event);
     this.config['question'] = event;
     this.updateConfig.emit(this.config);
   }
