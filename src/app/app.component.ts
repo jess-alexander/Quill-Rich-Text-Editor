@@ -17,7 +17,7 @@ export class AppComponent  {
       description: '',
       priority: 0,
       duration: 0,
-      type: TASK_TYPE.QUESTIONNAIRE,
+      type: TASK_TYPE.CONTENT,
 
       journeyTitle: '',
       journeyDescription: '',

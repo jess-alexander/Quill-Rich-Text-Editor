@@ -1,5 +1,5 @@
 <br><br>
-  <input [(ngModel)]="question['title']" placeholder="Question" #question>
+  <input [(ngModel)]="trivia['title']" placeholder="Question" #question>
   <span>correct</span>
   <br>
   <input [(ngModel)]="answer[1]['text']"  placeholder="Answer" class="answer">
@@ -13,5 +13,14 @@
   <br>
   <input [(ngModel)]="answer[4]['text']"  placeholder="Answer" class="answer">
   <input [(ngModel)]="answer[4]['correct']" type="radio" name="correctAnswer">
-  <br>
+  <br><br>
+<quill-editor [(ngModel)]="config['content']"
+      placeholder="Enter Text"
+      [modules]="quillConfig"
+      (onSelectionChanged)="onSelectionChanged($event)"
+      (onContentChanged)="onContentChanged($event)"></quill-editor>
+
+{{answer | json}}
 <br><br>
+
+  <button (click)="addTriviaQuestion()"> Append Question to Content </button>

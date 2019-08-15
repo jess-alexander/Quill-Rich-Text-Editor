@@ -37,7 +37,11 @@
       <button (click)="addPage()">addPage</button>
     </div>
   <div *ngSwitchCase="'TRIVIA'"> 
-    <p>Trivia Builder not Complete</p>
+    <trivia (appendQuestion)="appendQuestion($event)" ></trivia>
+    <!-- <label>Closing</label> -->
+    <quill-editor [(ngModel)]="pageConfig['content']"
+      placeholder="Enter Text"
+      [modules]="quillConfig"></quill-editor>
     </div>
 </div>
 
