@@ -1,6 +1,6 @@
 
-<label>Page-Type</label>
-<select class="form-control"  [(ngModel)]="pageConfig['type']"  >
+<label>Content Page-Type</label>
+<select [(ngModel)]="pageConfig['type']"  >
   <option value="BLURB">text</option>
   <option value="FRAME">iframe</option>
   <option value="EXTERNAL">external link</option>
@@ -9,16 +9,18 @@
 
 <div [ngSwitch]="pageConfig['type']" >
   <div *ngSwitchCase="'BLURB'"> 
-    <label>Rich Text</label>    
+    <label style=>Rich Text</label>    
     <quill-editor [(ngModel)]="pageConfig['content']"
       placeholder="Enter Text"
       [modules]="quillConfig"></quill-editor>
+      <br>
       <button (click)="addPage()">addPage</button>
     </div>
 
   <div *ngSwitchCase="'FRAME'"> 
-      <label>URL</label>    
-      <input [(ngModel)]="pageConfig['url']" class="form-control" placeholder="URL"  >
+      <label>url</label>    
+      <input [(ngModel)]="pageConfig['url']" placeholder="URL"  >
+      <br>
       <button (click)="addPage()">addPage</button>
     </div>
 
@@ -29,8 +31,9 @@
         [modules]="quillConfig"
         (onSelectionChanged)="onSelectionChanged($event)"
         (onContentChanged)="onContentChanged($event)"></quill-editor>
-      <label>URL</label>    
-      <input [(ngModel)]="pageConfig['url']" class="form-control" placeholder="URL" >
+      <label>url</label>    
+      <input [(ngModel)]="pageConfig['url']" placeholder="URL" >
+      <br>
       <button (click)="addPage()">addPage</button>
     </div>
   <div *ngSwitchCase="'TRIVIA'"> 

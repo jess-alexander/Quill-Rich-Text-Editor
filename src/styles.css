@@ -1,6 +1,13 @@
 /* Add application styles & imports to this file! */
 
-@import "./app/quill/quill-emoji.css";
-@import "./app/quill/quill-mention.css";
+/* @import "./app/quill/quill-emoji.css"; */
+/* @import "./app/quill/quill-mention.css"; */
 
 @import url('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
+
+
+label {
+  display: inline-block;
+  width: 140px;
+  text-align: right;
+}​

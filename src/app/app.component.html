@@ -1,43 +1,33 @@
 
-<!-- 
+
 <div class="form-group">
-  <label for="journey" class="col-lg-4">journeyTitle:</label>
-  <div class="col-lg-8">
-    <input [(ngModel)]="navTaskObject['journey']" class="form-control" placeholder="journey" #journey >
-  </div>
-  <label for="stageGroup" class="col-lg-4">stageGroupTitle:</label>
-  <div class="col-lg-8">
-    <input [(ngModel)]="navTaskObject['stageGroup']" class="form-control" placeholder="stageGroup" #stageGroup >
-  </div>
-  <label for="stage" class="col-lg-4">stageTitle:</label>
-  <div class="col-lg-8">
-    <input [(ngModel)]="navTaskObject['stage']" class="form-control" placeholder="stage" #stage >
-  </div>
+  <label for="journey">journeyTitle:</label>
+    <input [(ngModel)]="navTaskObject['journey']" placeholder="journey" #journey >
+  
+  <label for="stageGroup">stageGroupTitle:</label>
+    <input [(ngModel)]="navTaskObject['stageGroup']" placeholder="stageGroup" #stageGroup >
+  
+  <label for="stage" >stageTitle:</label>
+    <input [(ngModel)]="navTaskObject['stage']"  placeholder="stage" #stage >
 
-  <label for="priority" class="col-lg-4">priority order:</label>
-    <div class="col-lg-8">
-  <input [(ngModel)]="navTaskObject['priority']" class="form-control" placeholder="priority" #priority >
-  </div>
+  <label for="priority" >Task order #:</label>
+    <input [(ngModel)]="navTaskObject['priority']"  placeholder="priority" #priority >
 
-  <label for="tasktitle" class="col-lg-4">task title:</label>
-  <div class="col-lg-8">
-    <input [(ngModel)]="navTaskObject['title']" class="form-control" placeholder="title"   #tasktitle>
-  </div>
+  <label for="tasktitle" >task title:</label>
+    <input [(ngModel)]="navTaskObject['title']"  placeholder="title"   #tasktitle>
 
-  <label for="description" class="col-lg-4">task description:</label>
-  <div class="col-lg-8">
-    <input [(ngModel)]="navTaskObject['description']" class="form-control" placeholder="description" #description >
-  </div>
+  <label for="description" >task description:</label>
+    <input [(ngModel)]="navTaskObject['description']"  placeholder="description" #description >
 
-  <label for="duration" class="col-lg-4">task duration:</label>
-  <div class="col-lg-8">
-    <input [(ngModel)]="navTaskObject['duration']" class="form-control" placeholder="duration" #duration >
-  </div>
-</div> -->
+  <label for="duration" >task duration:</label>
+    <input [(ngModel)]="navTaskObject['duration']"  placeholder="duration" #duration >
+  
+  
+</div>
 <p>save task json before changing task-type</p>
-<label for="name" class="col-lg-4">Task-Type:</label>
-<div class="col-lg-8">
-  <select class="form-control"  [(ngModel)]="navTaskObject['type']" (change)='resetConfig()' >
+<label for="name" >Task-Type:</label>
+<div >
+  <select   [(ngModel)]="navTaskObject['type']" (change)='resetConfig()' >
     <option value="CONTENT">CONTENT</option>
     <option value="QUESTIONNAIRE">QUESTIONNAIRE</option>
     <option value="QUIZ">QUIZ</option>
