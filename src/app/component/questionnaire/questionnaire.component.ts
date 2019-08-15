@@ -9,11 +9,10 @@ import { ContentTaskConfig, Content, Frame, External, Trivia, CONTENT_SUB_TYPES 
 export class QuestionnaireComponent implements OnInit {
 
   @Output() updateConfig = new EventEmitter();
-  questionArr = [];
-  question = {};
-  answer = {};
-  config = {};
-  indx = 1;
+  // questionArr = [];
+  questionnaire    = {};
+  answer      = {};
+  config      = {};
 
   constructor() { }
 
@@ -22,12 +21,19 @@ export class QuestionnaireComponent implements OnInit {
   
   addQuestion(){
     if(this.validQuestion()){
-      this.question['options'] = [];
+      // this.question['options'] = [];
       
-  
+      // (Object.keys(this.answer).length)
+      let i;
+      for (i = 1; i < Object.keys(this.answer).length; i++) {
+        this.questionnaire['options'].push({
+          value: i, text: this.answer[i]
+        });
+      }
 
-      this.questionArr.push(this.question);
-      this.question = {}
+      // this.questionnaire['options'].push(this.questionnaire);
+      console.log(this.questionnaire);
+      this.questionnaire = {}
     }
   }
 

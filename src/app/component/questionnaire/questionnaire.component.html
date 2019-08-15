@@ -1,16 +1,18 @@
 
+
+
   <label for='qId'>journey-unique-key</label>
   <input [(ngModel)]="question['key']" placeholder="ask-for-raise-timing" #qId>
   <br>
   <input [(ngModel)]="question['title']" placeholder="Question" #question>
   <br>
-  <input [(ngModel)]="answer[1]['text']"  placeholder="Answer" class="answer">
+  <input [(ngModel)]="answer[1]"  placeholder="Answer" class="answer">
   <br>
-  <input [(ngModel)]="answer[2]['text']"  placeholder="Answer" class="answer">
+  <input [(ngModel)]="answer[2]"  placeholder="Answer" class="answer">
   <br>
-  <input [(ngModel)]="answer[3]['text']"  placeholder="Answer" class="answer">
+  <input [(ngModel)]="answer[3]"  placeholder="Answer" class="answer">
   <br>
-  <input [(ngModel)]="answer[4]['text']"  placeholder="Answer" class="answer">
+  <input [(ngModel)]="answer[4]"  placeholder="Answer" class="answer">
   <br>
 <br><br>
 
@@ -18,7 +20,9 @@
 
   <button (click)="updateDecisionConfig()">COMPLETE</button>
 
-<pre>{{answer | json}}</pre>
+<pre>{{question | json}}</pre>
+
+
 
 
   <!-- 
