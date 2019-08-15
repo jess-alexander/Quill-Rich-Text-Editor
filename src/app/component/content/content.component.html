@@ -37,7 +37,7 @@
       <button (click)="addPage()">addPage</button>
     </div>
   <div *ngSwitchCase="'TRIVIA'"> 
-    <p>Trivia Builder not Complete</p>
+    <trivia (appendQuestion)="appendQuestion($event)" ></trivia>
     </div>
 </div>
 

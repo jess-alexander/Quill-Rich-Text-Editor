@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ContentTaskConfig, Content, Frame, External, Trivia, CONTENT_SUB_TYPES } from '../../models/navigator';
+import {quillConfig} from '../../models/quillConfig';
 
 @Component({
   selector: 'content-config',
@@ -8,10 +9,10 @@ import { ContentTaskConfig, Content, Frame, External, Trivia, CONTENT_SUB_TYPES 
 })
 export class ContentComponent implements OnInit {
   
-  @Output() updateConfig = new EventEmitter();
-  pageType = 'BLURB';
-  pageConfig = {};
-  config;
+  @Output() updateConfig  = new EventEmitter();
+  quillConfig = quillConfig;
+  pageConfig = {'type': 'TRIVIA'};
+  config = {};
 
   constructor() { }
   ngOnInit() { }
@@ -19,7 +20,7 @@ export class ContentComponent implements OnInit {
   addPage(){
     
     if(!this.config){
-      this.config = {'pages':[]}; 
+      this.config['pages'] = [];
       this.appendPage();
     }else{
       this.appendPage();
@@ -30,8 +31,14 @@ export class ContentComponent implements OnInit {
     if(this.pageConfig !== null){
       this.config['pages'].push(this.pageConfig);
       this.updateConfig.emit(this.config);
-      this.pageConfig = {};
+      this.pageConfig = {'type': 'TRIVIA'};
     }
+  }
+
+  appendQuestion(event){
+    console.log(event);
+    this.config['question'] = event;
+    this.updateConfig.emit(this.config);
   }
   
   // blurbExists(): boolean{
@@ -66,58 +73,39 @@ export class ContentComponent implements OnInit {
 ////////////////////////////////////////////////
 // QUILL CONFIG AND STUFFS
 ////////////////////////////////////////////////
-  onSelectionChanged = (event) =>{
-    if(event.oldRange == null){
-      this.onFocus();
-    }
-    if(event.range == null){
-      this.onBlur();
-    }
-  }
+  
+  // quillConfig={
+  //   toolbar: {
+  //     container: [
+  //       ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+  //       // [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+  //       [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+  //   //     //[{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+  //       [{ 'header': [ 4, 5, 6, false] }],
 
-  onContentChanged = (event) =>{
-    //console.log(event.html);
-  }
+  //   //     //[{ 'font': [] }],
+  //       [{ 'align': ['','center','right']}],
+  //       // [{ 'align': []}],
+  //       // [{ 'align': ['right']}],
 
-  onFocus = () =>{
-    console.log("On Focus");
-  }
-  onBlur = () =>{
-    console.log("Blurred");
-  }
+  //       ['clean'],                                         // remove formatting button
 
-  quillConfig={
-    toolbar: {
-      container: [
-        ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-        // [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-    //     //[{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-        [{ 'header': [ 4, 5, 6, false] }],
-
-    //     //[{ 'font': [] }],
-        [{ 'align': ['','center','right']}],
-        // [{ 'align': []}],
-        // [{ 'align': ['right']}],
-
-        ['clean'],                                         // remove formatting button
-
-        ['link'],
-        ['link', 'image', 'video']  
-      ],
-    },
-    keyboard: {
-      bindings: {
-        enter:{
-          key:13,
-          handler: (range, context)=>{
-            console.log("enter");
-            return true;
-          }
-        }
-      }
-    }
-  }
+  //       ['link'],
+  //       ['link', 'image', 'video']  
+  //     ],
+  //   },
+  //   keyboard: {
+  //     bindings: {
+  //       enter:{
+  //         key:13,
+  //         handler: (range, context)=>{
+  //           console.log("enter");
+  //           return true;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 }
 
 type AcceptedType = Content | Frame | External | Trivia;

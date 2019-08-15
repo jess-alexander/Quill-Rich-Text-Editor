@@ -1,17 +1,32 @@
 <br><br>
-  <input [(ngModel)]="question['title']" placeholder="Question" #question>
+
+  <label for='qId'>journey unique key</label>
+  <input [(ngModel)]="trivia['key']" placeholder="variation-of-title" #qId>
+  <!-- <p>key must be lowercase with dashes</p> -->
+<br><br>
+  <input required [(ngModel)]="trivia['title']" placeholder="Question" #question>
   <span>correct</span>
   <br>
-  <input [(ngModel)]="answer[1]['text']"  placeholder="Answer" class="answer">
-  <input [(ngModel)]="answer[1]['correct']" type="radio" name="correctAnswer">
+  <input required [(ngModel)]="answer[1]"  placeholder="Answer" class="answer">
+  <input  type="radio" name="triviaAnswer" value='1' [(ngModel)]="correct">
   <br>
-  <input [(ngModel)]="answer[2]['text']"  placeholder="Answer" class="answer">
-  <input [(ngModel)]="answer[2]['correct']" type="radio" name="correctAnswer">
+  <input required [(ngModel)]="answer[2]"  placeholder="Answer" class="answer">
+  <input  type="radio" name="triviaAnswer" value='2' [(ngModel)]="correct">
   <br>
-  <input [(ngModel)]="answer[3]['text']"  placeholder="Answer" class="answer">
-  <input [(ngModel)]="answer[3]['correct']" type="radio" name="correctAnswer">
+  <input [(ngModel)]="answer[3]"  placeholder="Answer" class="answer">
+  <input  type="radio" name="triviaAnswer" value='3' [(ngModel)]="correct">
   <br>
-  <input [(ngModel)]="answer[4]['text']"  placeholder="Answer" class="answer">
-  <input [(ngModel)]="answer[4]['correct']" type="radio" name="correctAnswer">
+  <input [(ngModel)]="answer[4]"  placeholder="Answer" class="answer">
+  <input  type="radio" name="triviaAnswer" value='4' [(ngModel)]="correct">
   <br>
+  
+  <br><br>
+<label>Closing</label>
+<quill-editor [(ngModel)]="config['content']"
+      placeholder="Enter Text"
+      [modules]="quillConfig"></quill-editor>
+
+<!-- {{trivia | json}} -->
 <br><br>
+
+  <button (click)="addTriviaQuestion()"> Append Question to Content </button>
