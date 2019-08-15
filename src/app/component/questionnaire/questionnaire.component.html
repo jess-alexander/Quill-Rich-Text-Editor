@@ -1,7 +1,10 @@
 
-<br><br>
+  <label>journey-unique-key</label>
+  <input [(ngModel)]="question['key']" placeholder="journey-unique-key" #qId>
+  <br>
   <input [(ngModel)]="question['title']" placeholder="Question" #question>
-  <span>correct</span>
+  <!-- <span>correct</span> -->
+  <label for='correctAnswer'>correct</label>
   <br>
   <input [(ngModel)]="answer[1]['text']"  placeholder="Answer" class="answer">
   <input [(ngModel)]="answer[1]['correct']" type="radio" name="correctAnswer">

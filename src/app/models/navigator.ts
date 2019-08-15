@@ -103,7 +103,7 @@ export class EiSelectOption {
   }
 }
 export class EiFieldLoaderConfig{ // actually from EiFieldLoaderConfig
-  key: string; // MUST BE **unique within journey ** LOWERCSASE WITH DASHES
+  // key: string; // MUST BE **unique within journey ** LOWERCSASE WITH DASHES
   type: string;
   title?: string;
   description?: string;
@@ -112,6 +112,7 @@ export class EiFieldLoaderConfig{ // actually from EiFieldLoaderConfig
 
   }
 }
+
 export class QuestionnaireTaskConfig extends EiFieldLoaderConfig { }
 export class QuizTaskConfig extends EiFieldLoaderConfig { }
 export class QuestionnaireQuestion extends EiFieldLoaderConfig {
