@@ -10,7 +10,7 @@ export class QuestionnaireComponent implements OnInit {
 
   @Output() updateConfig = new EventEmitter();
   // questionArr = [];
-  questionnaire    = {};
+  questionnaire    = {'kind':'select'};
   answer      = {};
   config      = {};
 
@@ -21,41 +21,55 @@ export class QuestionnaireComponent implements OnInit {
   
   addQuestion(){
     if(this.validQuestion()){
-      // this.question['options'] = [];
       
-      // (Object.keys(this.answer).length)
+      console.log( (Object.keys(this.answer).length) );
       let i;
-      for (i = 1; i < Object.keys(this.answer).length; i++) {
+      this.questionnaire['options'] = [];
+      for (i = 1; i <= Object.keys(this.answer).length; i++) {
         this.questionnaire['options'].push({
           value: i, text: this.answer[i]
         });
+        console.log(this.questionnaire);
       }
-
-      // this.questionnaire['options'].push(this.questionnaire);
-      console.log(this.questionnaire);
-      this.questionnaire = {}
+      this.updateDecisionConfig();
+      this.questionnaire    = {'kind':'select'};
+      this.answer = {}
     }
   }
 
   validQuestion(): boolean{
     // all parts of question should exist
-    if(!!this.question['key'] && !!this.question["answer"]){
-
+    if(!this.questionnaire['key']){
+      alert("enter question key")
+      return false;
+    } 
+    if (!this.questionnaire['title'] ){
+      alert("enter question title")
+      return false;
+    } 
+    if(!this.answer['2']){
+      alert("please enter at least two answers");
+      return false;
     }
+    // if ( Object.keys(this.answer[1]).length >= 2){
+    //   alert("please enter at least two answers");
+    //   return false;
+    // }
 
-    if(!!this.question['key']){
+    if(!!this.questionnaire['key']){
       // KEY MUST
         // cannot contain spaces
         // must be all lowercase
     }
-    if(!!this.question["answer"]){
-
-    }
+    
     return true;
   }
 
   updateDecisionConfig(){
-    this.config['questions'] = this.questionArr;
+    if(!this.config['questions']){
+      this.config['questions'] = []
+    }
+    this.config['questions'].push(this.questionnaire);
     this.updateConfig.emit(this.config);
   }
 
