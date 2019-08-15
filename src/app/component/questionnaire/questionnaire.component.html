@@ -1,6 +1,6 @@
 
   <label for='qId'>journey-unique-key</label>
-  <input [(ngModel)]="question['key']" placeholder="journey-unique-key" #qId>
+  <input [(ngModel)]="question['key']" placeholder="ask-for-raise-timing" #qId>
   <br>
   <input [(ngModel)]="question['title']" placeholder="Question" #question>
   <br>
@@ -14,10 +14,9 @@
   <br>
 <br><br>
 
-  <button (click)="addQuestion()"> Add Another Question</button>
+  <button (click)="addQuestion()"> Append Question to Config </button>
 
-  <button (click)="addQuestion()">COMPLETE</button>
-
+  <button (click)="updateDecisionConfig()">COMPLETE</button>
 
 <pre>{{answer | json}}</pre>
 

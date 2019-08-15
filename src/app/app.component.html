@@ -21,27 +21,27 @@
 
   <label for="duration" >task duration:</label>
     <input [(ngModel)]="navTaskObject['duration']"  placeholder="duration" #duration >
+</div>  
   
-  
-</div>
-<p>save task json before changing task-type</p>
-<label for="name" >Task-Type:</label>
-<div >
+<label style="width: 350px;">save task json before changing task-type</label>
+<!-- <label for="name" >Task-Type:</label> -->
   <select   [(ngModel)]="navTaskObject['type']" (change)='resetConfig()' >
-    <option value="CONTENT">CONTENT</option>
-    <option value="QUESTIONNAIRE">QUESTIONNAIRE</option>
-    <option value="QUIZ">QUIZ</option>
-    <option value="BGOCCUPATIONANALYSIS">BG_OCCUPATION_ANALYSIS</option>
+    <option value="CONTENT">Static Content</option>
+    <option value="QUESTIONNAIRE">Questionnaire / decision</option>
+    <!-- <option value="QUIZ">Quiz</option> -->
+    <option value="BGOCCUPATIONANALYSIS">BurningGlass Occ-Analysis</option>
   </select>
-</div>
-<div [ngSwitch]="navTaskObject['type']">
+
+<br><br><br>
+
+<div [ngSwitch]="navTaskObject['type']" style="text-align:center">
   <div *ngSwitchCase="'CONTENT'"> 
     <content-config (updateConfig)="updateTaskObject($event)"> </content-config>
   </div>
   <div *ngSwitchCase="'QUESTIONNAIRE'"> 
     <questionnaire (updateConfig)="updateTaskObject($event)"></questionnaire>
     </div>
-  <div *ngSwitchCase="'QUIZ'"> quiz </div>
+  <div *ngSwitchCase="'QUIZ'"> Quiz Builder not Complete </div>
   <div *ngSwitchCase="'BGOCCUPATIONANALYSIS'"> BG_OCCUPATION_ANALYSIS </div>
   <div *ngSwitchDefault>...</div>
 </div>

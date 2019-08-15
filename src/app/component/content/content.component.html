@@ -9,7 +9,7 @@
 
 <div [ngSwitch]="pageConfig['type']" >
   <div *ngSwitchCase="'BLURB'"> 
-    <label style=>Rich Text</label>    
+    <!-- <label >Rich Text</label>     -->
     <quill-editor [(ngModel)]="pageConfig['content']"
       placeholder="Enter Text"
       [modules]="quillConfig"></quill-editor>
@@ -37,7 +37,7 @@
       <button (click)="addPage()">addPage</button>
     </div>
   <div *ngSwitchCase="'TRIVIA'"> 
-    <p>Trivia not completed</p>
+    <p>Trivia Builder not Complete</p>
     </div>
 </div>
 

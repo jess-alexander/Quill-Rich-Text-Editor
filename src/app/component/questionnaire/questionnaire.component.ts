@@ -19,20 +19,38 @@ export class QuestionnaireComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  addOption(){
-    if(!!this.answer['text'] && !!this.question['title']){
-      this.answer['value'] = this.indx;
-      this.question['options'] = this.answer;
-      this.indx++;
-    }
-  }
   
   addQuestion(){
-    
-    this.question['options']
-    this.questionArr.push(this.question);
-    this.question = {}
+    if(this.validQuestion()){
+      this.question['options'] = [];
+      
+  
+
+      this.questionArr.push(this.question);
+      this.question = {}
+    }
+  }
+
+  validQuestion(): boolean{
+    // all parts of question should exist
+    if(!!this.question['key'] && !!this.question["answer"]){
+
+    }
+
+    if(!!this.question['key']){
+      // KEY MUST
+        // cannot contain spaces
+        // must be all lowercase
+    }
+    if(!!this.question["answer"]){
+
+    }
+    return true;
+  }
+
+  updateDecisionConfig(){
+    this.config['questions'] = this.questionArr;
+    this.updateConfig.emit(this.config);
   }
 
 }
