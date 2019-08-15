@@ -13,13 +13,13 @@ export class TriviaComponent implements OnInit {
   quillConfig = quillConfig;
   config = {};
   trivia = {'kind':'select'};
-  answer = {
-    1:{},
-    2:{},
-    3:{},
-    4:{},
-  };
-  // answer = {};
+  // answer = {
+  //   1:{},
+  //   2:{},
+  //   3:{},
+  //   4:{},
+  // };
+  answer = {};
 
   constructor() { }
 
@@ -42,10 +42,11 @@ export class TriviaComponent implements OnInit {
   }
 
   updateDecisionConfig(){
+    // DON"T NED THIS BECAUSE TRIVIA ONLY HAS 1 QUESTION
     // if(!this.config['questions']){
-    //   this.config['questions'] = []
+    this.config['questions'] = {};
     // }
-    // this.config['questions'].push(this.trivia);
-    this.appendQuestion.emit(this.trivia);
+    this.config['questions'].push(this.trivia);
+    this.appendQuestion.emit(this.config);
   }
 }
