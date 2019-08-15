@@ -11,21 +11,38 @@ import  {TASK_TYPE, CONTENT_SUB_TYPES, ContentTaskConfig, NavigatorTask,
 })
 export class AppComponent  {
   
-  showJSON = false;
+  // TaskType = TASK_TYPE;
+  // ContentSubType = CONTENT_SUB_TYPES;
+   showJSON = false;
 
   navTaskObject: NavigatorTask = {
-    title: ''  ,
-    description: '',
-    priority: 0,
-    duration: 0,
-    type: TASK_TYPE.CONTENT,
+      title: ''  ,
+      description: '',
+      priority: 0,
+      duration: 0,
+      type: TASK_TYPE.QUESTIONNAIRE,
 
-    journeyTitle: '',
-    stageGroupTitle: '',
-    stageTitle: '',
-    
-    config: undefined,
+      journeyTitle: '',
+      stageGroupTitle: '',
+      stageTitle: '',
+      
+      config: undefined,
   };
+
+  /*
+  title?: string;
+  description?: string;
+  priority?: number;
+
+  required?: boolean;
+  duration?: number;
+  type?: TASK_TYPE;
+  config?: ContentTaskConfig | QuestionnaireTaskConfig | QuizTaskConfig; // Configuration for the component loaded based on type
+
+  journey?: NavigatorJourney;
+  stageGroup?: NavigatorStageGroup;
+  stage?: NavigatorStage;
+  */
 
   constructor(
     private quillInitializeService: QuillInitializeService
