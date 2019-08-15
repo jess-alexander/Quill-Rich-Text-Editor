@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import {QuillInitializeService} from './services/quillInitialize.service';
-import 'quill-mention';
-import 'quill-emoji';
 import  {TASK_TYPE, CONTENT_SUB_TYPES, ContentTaskConfig, NavigatorTask,
          QuestionnaireTaskConfig
          } from './models';
