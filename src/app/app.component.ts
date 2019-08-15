@@ -10,7 +10,6 @@ import  {TASK_TYPE, CONTENT_SUB_TYPES, ContentTaskConfig, NavigatorTask,
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  
   showJSON = false;
   navTaskObject: NavigatorTask = {
       title: ''  ,
