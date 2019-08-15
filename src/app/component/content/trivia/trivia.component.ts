@@ -1,5 +1,3 @@
-
-
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {quillConfig} from '../../../models/quillConfig';
 
@@ -11,45 +9,46 @@ import {quillConfig} from '../../../models/quillConfig';
 export class TriviaComponent implements OnInit {
   @Output() appendQuestion = new EventEmitter();
   quillConfig = quillConfig;
-  config = {};
   trivia = {'kind':'select'};
-  // answer = {
-  //   1:{},
-  //   2:{},
-  //   3:{},
-  //   4:{},
-  // };
+  config = {};
   answer = {};
+  correct = '';
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   addTriviaQuestion(){
+    this.trivia['options'] = [];
+    this.appendAnswers();
+    this.updateDecisionConfig();
+  }
 
-      console.log( (Object.keys(this.answer).length) );
-      let i;
-      this.trivia['options'] = [];
-      for (i = 1; i <= Object.keys(this.answer).length; i++) {
-        this.trivia['options'].push({
-          value: i, text: this.answer[i]
-        });
-        if(!!this.answer[i]['correct']){
-          console.log("DID IT");
-        }
+  appendAnswers(){
+    let i;
+    for (i = 1; i <= Object.keys(this.answer).length; i++) {
+      let answer;
+      if( this.correct == ''+i ){
+        answer = { value: i, text: this.answer[i], correct: true };
+      } else {
+        answer = { value: i, text: this.answer[i] };
       }
-      this.updateDecisionConfig();
-      // this.trivia    = {'kind':'select'};
-      // this.answer = {}
+      this.trivia['options'].push(answer);
+    }
   }
 
   updateDecisionConfig(){
-    // DON"T NED THIS BECAUSE TRIVIA ONLY HAS 1 QUESTION
-    // if(!this.config['questions']){
-    // this.config['question'] = {};
-    // }
-    this.config['question'] = this.trivia;
-    this.appendQuestion.emit(this.config);
+    // TRIVIA ONLY HAS 1 QUESTION
+    
+    if(this.validConfig()){
+      this.config['question'] = this.trivia;
+      this.appendQuestion.emit(this.config);
+      this.trivia    = {'kind':'select'};
+      this.answer = {};
+    }
+  }
+
+  validConfig():boolean{
+    return true;
   }
 }

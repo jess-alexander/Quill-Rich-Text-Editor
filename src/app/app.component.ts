@@ -40,26 +40,36 @@ export class AppComponent  {
       this.showJSON = true;   
     }
   }
+  
   validObject(){
+    let valid = true;
+
     if(this.navTaskObject['title'].length >= 55){
       alert('task type too long');
+      valid = false;
     }
     if(this.navTaskObject['description'].length >= 70){
       alert('task description too long');
+      valid = false;
     }
     if(this.navTaskObject['stageGroupTitle'].length >= 25){
       alert('stageGroupTitle too long');
+      valid = false;
     }
     if(this.navTaskObject['stageGroupDescription'].length >= 190){
       alert('stageGroup description too long');
+      valid = false;
     }
     if(this.navTaskObject['journeyTitle'].length >= 32){
       alert('journey title too long');
+      valid = false;
     }
     if(this.navTaskObject['journeyDescription'].length >= 190){
       alert('journey description too long');
+      valid = false;
     }
 
+    return valid;
 
   }
 
