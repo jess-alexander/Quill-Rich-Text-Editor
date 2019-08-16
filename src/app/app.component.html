@@ -1,17 +1,16 @@
 
 
 <div class="input-group">
-  <div class="lil-group">
       <label for="journey">Journey:</label> 
-      <input [(ngModel)]="navTaskObject['journeyTitle']" placeholder="Title" #journey >
+      <!-- <input [(ngModel)]="navTaskObject['journeyTitle']" placeholder="Title" #journey > -->
+      <textarea [(ngModel)]="navTaskObject['journeyTitle']" placeholder="Title" #journey rows="1" cols="40" > </textarea>
       <!-- <input [(ngModel)]="navTaskObject['journeyDescription']" placeholder="Description" > -->
-      <textarea [(ngModel)]="navTaskObject['journeyDescription']" rows="4" cols="40" placeholder="Description" ></textarea>
-  </div>
+      <textarea [(ngModel)]="navTaskObject['journeyDescription']" rows="4" cols="50" placeholder="Description" ></textarea>
 
   <br>
   <label for="stageGroup">StageGroup:</label>
-  <input [(ngModel)]="navTaskObject['stageGroupTitle']" placeholder="Title" >
-  <textarea [(ngModel)]="navTaskObject['stageGroupDescription']" rows="4" cols="40" placeholder="Description" ></textarea>
+  <textarea [(ngModel)]="navTaskObject['stageGroupTitle']" placeholder="Title" #journey rows="1" cols="40" > 
+  <textarea [(ngModel)]="navTaskObject['stageGroupDescription']" rows="4" cols="50" placeholder="Description" ></textarea>
   <!-- <input [(ngModel)]="navTaskObject['stageGroupDescription']" placeholder="Description" > -->
   <br>
   <label for="stage" >Stage #:</label>
@@ -19,8 +18,8 @@
   <br><br><br>
   <label for="priority" >Task #:</label>
     <input [(ngModel)]="navTaskObject['priority']"  placeholder="priority" #priority >
-    <input [(ngModel)]="navTaskObject['title']"  placeholder="title"   #tasktitle>
-    <textarea [(ngModel)]="navTaskObject['description']" rows="2" cols="40" placeholder="Description" ></textarea>
+    <textarea [(ngModel)]="navTaskObject['title']" placeholder="Title" #journey rows="1" cols="40" > 
+    <textarea [(ngModel)]="navTaskObject['description']" rows="2" cols="50" placeholder="Description" ></textarea>
     <!-- <input [(ngModel)]="navTaskObject['description']"  placeholder="description" #description > -->
 <br>
   <label for="duration" >task duration:</label>

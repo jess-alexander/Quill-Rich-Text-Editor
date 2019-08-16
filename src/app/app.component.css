@@ -5,6 +5,10 @@ label{
   width: 140px;
 }
 
+text-area{
+  resize:none;
+}
+
 label, input, text-area {
   display: inline-block;
   text-align: center;
