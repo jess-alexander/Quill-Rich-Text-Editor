@@ -10,7 +10,7 @@ export class TriviaComponent implements OnInit {
   @Output() appendQuestion = new EventEmitter();
   quillConfig = quillConfig;
   trivia = {'kind':'select'};
-  config = {};
+  page = { type: 'TRIVIA', question: {}};
   answer = {};
   correct = '';
 
@@ -38,17 +38,47 @@ export class TriviaComponent implements OnInit {
   }
 
   updateDecisionConfig(){
-    // TRIVIA ONLY HAS 1 QUESTION
     
     if(this.validConfig()){
-      this.config['question'] = this.trivia;
-      this.appendQuestion.emit(this.config);
+      this.page['question'] = this.trivia;
+      this.appendQuestion.emit(this.page);
+
+      this.page = { type: 'TRIVIA', question: {}};
       this.trivia    = {'kind':'select'};
       this.answer = {};
     }
   }
 
   validConfig():boolean{
+    // all parts of question should exist
+    if(!this.trivia['key']){
+      alert("enter question key")
+      return false;
+    } 
+    if (!this.trivia['title'] ){
+      alert("enter question title")
+      return false;
+    } 
+    if(!this.answer['1'] || !this.answer['2']){
+      alert("please enter at least two answers");
+      return false;
+    }
+    // if ( Object.keys(this.answer[1]).length >= 2){
+    //   alert("please enter at least two answers");
+    //   return false;
+    // }
+
+    if(!this.correct){
+      alert("please select a correct answer")
+      return false;
+    }
+
+    if(!!this.trivia['key']){
+      // KEY MUST
+        // cannot contain spaces
+        // must be all lowercase
+    }
+    
     return true;
   }
 }

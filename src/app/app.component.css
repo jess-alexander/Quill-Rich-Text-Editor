@@ -1,12 +1,37 @@
 /* @import url('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'); */
 
-
-
-label {
-  display: inline-block;
-  width: 140px;
+label{
   text-align: right;
+  width: 140px;
+}
+
+text-area{
+  resize:none;
+}
+
+label, input, text-area {
+  display: inline-block;
+  text-align: center;
+  
 }​
+.group{
+  display: flex;
+  
+}
+
+.in-group{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  
+}
+.lil-group{
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* align-items: flex-start; */
+  /* background: purple; */
+  text-align:center;
+}
 
 p {
   font-family: Lato;

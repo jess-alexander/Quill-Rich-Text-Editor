@@ -1,40 +1,46 @@
 
-
-<div class="form-group">
-  <label for="journey">journeyTitle:</label>
-    <input [(ngModel)]="navTaskObject['journey']" placeholder="journey" #journey >
-  
-  <label for="stageGroup">stageGroupTitle:</label>
-    <input [(ngModel)]="navTaskObject['stageGroup']" placeholder="stageGroup" #stageGroup >
-  
-  <label for="stage" >stage #:</label>
-    <input [(ngModel)]="navTaskObject['stage']"  placeholder="stage" #stage >
-
-  <label for="priority" >Task order #:</label>
+<div>
+  <div class="in-group">
+      <label for="journey">Journey:</label> 
+      <textarea [(ngModel)]="navTaskObject['journeyTitle']" placeholder="Title" #journey rows="1" cols="40" > </textarea>
+      <textarea [(ngModel)]="navTaskObject['journeyDescription']" rows="4" cols="50" placeholder="Description" ></textarea>
+  </div>
+  <div class="in-group">
+    <label for="stageGroup">StageGroup:</label>
+    <textarea [(ngModel)]="navTaskObject['stageGroupTitle']" placeholder="Title" #stageGroup rows="1" cols="40" ></textarea> 
+    <textarea [(ngModel)]="navTaskObject['stageGroupDescription']" rows="4" cols="50" placeholder="Description" ></textarea>
+  </div>
+  <div class="in-group">
+    <label for="stage" >Stage #:</label>
+    <input [(ngModel)]="navTaskObject['stageNum']"  placeholder="stage" #stage >
+  </div>
+  <div class="in-group">
+  <label for="priority" >Task #:</label>
     <input [(ngModel)]="navTaskObject['priority']"  placeholder="priority" #priority >
-
-  <label for="tasktitle" >task title:</label>
-    <input [(ngModel)]="navTaskObject['title']"  placeholder="title"   #tasktitle>
-
-  <label for="description" >task description:</label>
-    <input [(ngModel)]="navTaskObject['description']"  placeholder="description" #description >
-
-  <label for="duration" >task duration:</label>
+    <textarea [(ngModel)]="navTaskObject['title']" placeholder="Title" #journey rows="1" cols="40" > </textarea>
+    <textarea [(ngModel)]="navTaskObject['description']" rows="2" cols="50" placeholder="Description" ></textarea>
+    <!-- <input [(ngModel)]="navTaskObject['description']"  placeholder="description" #description > -->
+  </div>
+  <div class="in-group">
+    <label for="duration" >task duration:</label>
     <input [(ngModel)]="navTaskObject['duration']"  placeholder="duration" #duration >
+  </div>
 </div>  
   
+<br><br>
 <label style="width: 350px;">save task json before changing task-type</label>
-<!-- <label for="name" >Task-Type:</label> -->
+<br><br>
+<div class="in-group">  
+  <label>Task-Type</label>
   <select   [(ngModel)]="navTaskObject['type']" (change)='resetConfig()' >
     <option value="CONTENT">Static Content</option>
     <option value="QUESTIONNAIRE">Questionnaire / decision</option>
-    <!-- <option value="QUIZ">Quiz</option> -->
     <option value="BGOCCUPATIONANALYSIS">BurningGlass Occ-Analysis</option>
   </select>
+</div> 
+<br>
 
-<br><br><br>
-
-<div [ngSwitch]="navTaskObject['type']" style="text-align:center">
+<div [ngSwitch]="navTaskObject['type']" class='in-group'>
   <div *ngSwitchCase="'CONTENT'"> 
     <content-config (updateConfig)="updateTaskObject($event)"> </content-config>
   </div>
@@ -42,7 +48,9 @@
     <questionnaire (updateConfig)="updateTaskObject($event)"></questionnaire>
     </div>
   <div *ngSwitchCase="'QUIZ'"> Quiz Builder not Complete </div>
-  <div *ngSwitchCase="'BGOCCUPATIONANALYSIS'"> BG_OCCUPATION_ANALYSIS </div>
+  <div *ngSwitchCase="'BGOCCUPATIONANALYSIS'"> 
+    <button (click)='updateTaskObject($event)'>Generate JSON</button> 
+    </div>
   <div *ngSwitchDefault>...</div>
 </div>
 
