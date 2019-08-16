@@ -20,7 +20,7 @@ export class QuestionnaireComponent implements OnInit {
   }
   
   addQuestion(){
-    if(this.validQuestion()){
+    if(this.validQuestionnaire()){
       
       console.log( (Object.keys(this.answer).length) );
       let i;
@@ -37,7 +37,7 @@ export class QuestionnaireComponent implements OnInit {
     }
   }
 
-  validQuestion(): boolean{
+  validQuestionnaire(): boolean{
     // all parts of question should exist
     if(!this.questionnaire['key']){
       alert("enter question key")

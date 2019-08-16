@@ -22,7 +22,6 @@
     <input [(ngModel)]="navTaskObject['priority']"  placeholder="priority" #priority >
     <textarea [(ngModel)]="navTaskObject['title']" placeholder="Title" #journey rows="1" cols="40" > </textarea>
     <textarea [(ngModel)]="navTaskObject['description']" rows="2" cols="50" placeholder="Description" ></textarea>
-    <!-- <input [(ngModel)]="navTaskObject['description']"  placeholder="description" #description > -->
   </div>
   <div class="in-group">
     <label for="duration" >task duration:</label>
@@ -65,6 +64,11 @@
   <div *ngSwitchDefault>...</div>
 </div>
 
+<br><br>
+<div *ngIf='showValidate'>
+  <button style="color:blue"(click)='validTitleDesc()'>Recheck Validation to show JSON</button>
+  {{ invalidProp | json}}
+</div>
 
 <div *ngIf='showJSON'>
   <h4>Task Json</h4>

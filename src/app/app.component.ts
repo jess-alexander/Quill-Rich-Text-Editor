@@ -13,6 +13,9 @@ import  {TASK_TYPE, CONTENT_SUB_TYPES, ContentTaskConfig, NavigatorTask,
 export class AppComponent  {
   quillConfig = quillConfig;
   showJSON = false;
+  showValidate = false;
+  invalid = "";
+
   navTaskObject: NavigatorTask = {
       title: ''  ,
       description: '',
@@ -36,17 +39,15 @@ export class AppComponent  {
 
   updateTaskObject(event){
     console.log(event)
-    if(this.validObject()){
-      this.navTaskObject['config'] = event;
-      this.showJSON = true;   
-    }
+    this.validTitleDesc()
+    this.navTaskObject['config'] = event; 
   }
   
-  validObject(){
+  validTitleDesc(){
     let valid = true;
 
     if(this.navTaskObject['title'].length >= 55){
-      alert('task type too long');
+      alert(' task type too long');
       valid = false;
     }
     if(this.navTaskObject['description'].length >= 70){
@@ -54,7 +55,7 @@ export class AppComponent  {
       valid = false;
     }
     if(this.navTaskObject['stageGroupTitle'].length >= 25){
-      alert('stageGroupTitle too long');
+      alert('stageGroup Title too long');
       valid = false;
     }
     if(this.navTaskObject['stageGroupDescription'].length >= 190){
@@ -69,8 +70,9 @@ export class AppComponent  {
       alert('journey description too long');
       valid = false;
     }
-
-    return valid;
+    this.showValidate = !valid;
+    this.showJSON = valid;
+    // return valid;
 
   }
 

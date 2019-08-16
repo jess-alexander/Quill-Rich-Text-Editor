@@ -39,7 +39,7 @@ export class TriviaComponent implements OnInit {
 
   updateDecisionConfig(){
     
-    if(this.validConfig()){
+    if(this.validTrivia()){
       this.page['question'] = this.trivia;
       this.appendQuestion.emit(this.page);
 
@@ -49,7 +49,7 @@ export class TriviaComponent implements OnInit {
     }
   }
 
-  validConfig():boolean{
+  validTrivia():boolean{
     // all parts of question should exist
     if(!this.trivia['key']){
       alert("enter question key")
