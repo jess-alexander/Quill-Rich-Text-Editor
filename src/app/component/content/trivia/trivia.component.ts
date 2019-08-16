@@ -50,6 +50,30 @@ export class TriviaComponent implements OnInit {
   }
 
   validConfig():boolean{
+    // all parts of question should exist
+    if(!this.trivia['key']){
+      alert("enter question key")
+      return false;
+    } 
+    if (!this.trivia['title'] ){
+      alert("enter question title")
+      return false;
+    } 
+    if(!this.answer['2']){
+      alert("please enter at least two answers");
+      return false;
+    }
+    // if ( Object.keys(this.answer[1]).length >= 2){
+    //   alert("please enter at least two answers");
+    //   return false;
+    // }
+
+    if(!!this.trivia['key']){
+      // KEY MUST
+        // cannot contain spaces
+        // must be all lowercase
+    }
+    
     return true;
   }
 }
