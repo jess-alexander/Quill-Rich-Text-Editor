@@ -30,15 +30,42 @@ export class ContentComponent implements OnInit {
   appendPage(){
     if(this.pageConfig !== null){
       this.config['pages'].push(this.pageConfig);
-      this.updateConfig.emit(this.config);
-      this.pageConfig = {};
+      // this.updateConfig.emit(this.config);
+      // this.pageConfig = {};
+      this.validateAndSendContent();
     }
   }
 
   appendQuestion(event){
     console.log(event);
     this.config['pages'].push(event);
-    this.updateConfig.emit(this.config);
-    this.pageConfig = {};
+    this.validateAndSendContent();
+  }
+
+  validateAndSendContent(){
+    let valid = true;
+    switch(this.pageConfig['type']){
+      case 'BLURB':
+      case 'External':
+        valid = this.clearOfEmbeddedLinks();
+      case 'FRAME':
+      case 'TRIVIA':
+    }
+    if(valid){
+      this.updateConfig.emit(this.config);
+      this.pageConfig = {};
+    } else {
+      
+    }
+  }
+  
+  clearOfEmbeddedLinks(): boolean{
+    let result = this.pageConfig['content'].includes('href');
+    if(result){
+      alert('Rich text cannot contain embedded links');
+    }
+    return !result;
+
+    // return true;
   }
 }

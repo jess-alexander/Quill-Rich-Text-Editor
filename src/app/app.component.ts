@@ -38,8 +38,7 @@ export class AppComponent  {
   }
 
   updateTaskObject(event){
-    console.log(event)
-    this.validTitleDesc()
+    this.validTitleDesc();
     this.navTaskObject['config'] = event; 
   }
   
