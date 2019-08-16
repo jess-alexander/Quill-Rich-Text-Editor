@@ -69,6 +69,7 @@ export class AppComponent  {
       alert('journey description too long');
       valid = false;
     }
+    
     this.showValidate = !valid;
     this.showJSON = valid;
     // return valid;

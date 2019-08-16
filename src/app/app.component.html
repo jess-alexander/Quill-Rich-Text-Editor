@@ -15,7 +15,7 @@
   </div>
   <div class="in-group">
     <label for="stage" >Stage #:</label>
-    <input [(ngModel)]="navTaskObject['stageNum']"  placeholder="stage" #stage >
+    <input type="number" [(ngModel)]="navTaskObject['stageNum']"  placeholder="stage" #stage >
   </div>
   <div class="in-group">
   <label for="priority" >Task #:</label>
@@ -25,13 +25,13 @@
     <option value=3>3</option>
     <option value=4>4</option>
   </select> -->
-    <input [(ngModel)]="navTaskObject['priority']"  placeholder="priority" #priority >
+    <input type="number" [(ngModel)]="navTaskObject['priority']"  placeholder="priority" #priority >
     <textarea [(ngModel)]="navTaskObject['title']" placeholder="Title" #journey rows="1" cols="40" > </textarea>
     <textarea [(ngModel)]="navTaskObject['description']" rows="2" cols="50" placeholder="Description" ></textarea>
   </div>
   <div class="in-group">
     <label for="duration" >task duration:</label>
-    <input [(ngModel)]="navTaskObject['duration']"  placeholder="duration" #duration >
+    <input type="number" [(ngModel)]="navTaskObject['duration']"  placeholder="duration" #duration >
   </div>
 </div>  
   
