@@ -59,7 +59,7 @@ export class TriviaComponent implements OnInit {
       alert("enter question title")
       return false;
     } 
-    if(!this.answer['2']){
+    if(!this.answer['1'] || !this.answer['2']){
       alert("please enter at least two answers");
       return false;
     }
@@ -67,6 +67,11 @@ export class TriviaComponent implements OnInit {
     //   alert("please enter at least two answers");
     //   return false;
     // }
+
+    if(!this.correct){
+      alert("please select a correct answer")
+      return false;
+    }
 
     if(!!this.trivia['key']){
       // KEY MUST
