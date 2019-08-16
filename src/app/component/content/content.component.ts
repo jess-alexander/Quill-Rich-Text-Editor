@@ -12,7 +12,7 @@ export class ContentComponent implements OnInit {
   @Output() updateConfig  = new EventEmitter();
   quillConfig = quillConfig;
   pageConfig = {'type': 'TRIVIA'};
-  config = {};
+  config = {'pages': []};
 
   constructor() { }
   ngOnInit() { }
