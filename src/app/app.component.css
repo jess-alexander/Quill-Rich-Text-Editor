@@ -14,15 +14,23 @@ label, input, text-area {
   text-align: center;
   
 }​
-/* .input-group{
+.group{
   display: flex;
-} */
+  
+}
 
-.lil-group{
+.in-group{
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  background: purple;
+  
+}
+.lil-group{
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* align-items: flex-start; */
+  /* background: purple; */
+  text-align:center;
 }
 
 p {
