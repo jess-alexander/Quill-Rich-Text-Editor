@@ -1,29 +1,38 @@
 
 
 <div class="input-group">
+  <div>
       <label for="journey">Journey:</label> 
       <!-- <input [(ngModel)]="navTaskObject['journeyTitle']" placeholder="Title" #journey > -->
       <textarea [(ngModel)]="navTaskObject['journeyTitle']" placeholder="Title" #journey rows="1" cols="40" > </textarea>
       <!-- <input [(ngModel)]="navTaskObject['journeyDescription']" placeholder="Description" > -->
       <textarea [(ngModel)]="navTaskObject['journeyDescription']" rows="4" cols="50" placeholder="Description" ></textarea>
-
+  </div>
   <br>
-  <label for="stageGroup">StageGroup:</label>
-  <textarea [(ngModel)]="navTaskObject['stageGroupTitle']" placeholder="Title" #journey rows="1" cols="40" > 
-  <textarea [(ngModel)]="navTaskObject['stageGroupDescription']" rows="4" cols="50" placeholder="Description" ></textarea>
-  <!-- <input [(ngModel)]="navTaskObject['stageGroupDescription']" placeholder="Description" > -->
+  <div>
+    <label for="stageGroup">StageGroup:</label>
+    <textarea [(ngModel)]="navTaskObject['stageGroupTitle']" placeholder="Title" #stageGroup rows="1" cols="40" > 
+    <textarea [(ngModel)]="navTaskObject['stageGroupDescription']" rows="4" cols="50" placeholder="Description" ></textarea>
+    <!-- <input [(ngModel)]="navTaskObject['stageGroupDescription']" placeholder="Description" > -->
+  </div>
   <br>
-  <label for="stage" >Stage #:</label>
+  <div>
+    <label for="stage" >Stage #:</label>
     <input [(ngModel)]="navTaskObject['stageNum']"  placeholder="stage" #stage >
-  <br><br><br>
+  </div>
+  <br>
+  <div>
   <label for="priority" >Task #:</label>
     <input [(ngModel)]="navTaskObject['priority']"  placeholder="priority" #priority >
     <textarea [(ngModel)]="navTaskObject['title']" placeholder="Title" #journey rows="1" cols="40" > 
     <textarea [(ngModel)]="navTaskObject['description']" rows="2" cols="50" placeholder="Description" ></textarea>
     <!-- <input [(ngModel)]="navTaskObject['description']"  placeholder="description" #description > -->
-<br>
-  <label for="duration" >task duration:</label>
+  </div>
+  <br>
+  <div>
+    <label for="duration" >task duration:</label>
     <input [(ngModel)]="navTaskObject['duration']"  placeholder="duration" #duration >
+  </div>
 </div>  
   
 <label style="width: 350px;">save task json before changing task-type</label>
