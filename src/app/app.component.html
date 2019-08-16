@@ -1,6 +1,6 @@
 
 
-<div >
+<div class="form-group">
   <label for="journey">Journey:</label>
     <input [(ngModel)]="navTaskObject['journeyTitle']" placeholder="Title" #journey >
     <input [(ngModel)]="navTaskObject['journeyDescription']" placeholder="Description" >
@@ -22,11 +22,9 @@
 </div>  
   
 <label style="width: 350px;">save task json before changing task-type</label>
-<!-- <label for="name" >Task-Type:</label> -->
   <select   [(ngModel)]="navTaskObject['type']" (change)='resetConfig()' >
     <option value="CONTENT">Static Content</option>
     <option value="QUESTIONNAIRE">Questionnaire / decision</option>
-    <!-- <option value="QUIZ">Quiz</option> -->
     <option value="BGOCCUPATIONANALYSIS">BurningGlass Occ-Analysis</option>
   </select>
 
@@ -40,7 +38,9 @@
     <questionnaire (updateConfig)="updateTaskObject($event)"></questionnaire>
     </div>
   <div *ngSwitchCase="'QUIZ'"> Quiz Builder not Complete </div>
-  <div *ngSwitchCase="'BGOCCUPATIONANALYSIS'"> BG_OCCUPATION_ANALYSIS </div>
+  <div *ngSwitchCase="'BGOCCUPATIONANALYSIS'"> 
+    <button (click)='updateTaskObject($event)'></button> 
+    </div>
   <div *ngSwitchDefault>...</div>
 </div>
 

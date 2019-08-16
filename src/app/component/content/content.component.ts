@@ -37,7 +37,7 @@ export class ContentComponent implements OnInit {
 
   appendQuestion(event){
     console.log(event);
-    this.config['question'] = event;
+    this.config['pages'].push(event);
     this.updateConfig.emit(this.config);
   }
   

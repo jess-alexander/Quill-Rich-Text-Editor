@@ -23,17 +23,17 @@ export class AppComponent  {
       stageGroupTitle: '',
       stageGroupDescription: '',
       stageNum: 0,
-      
-      config: undefined,
   };
 
   constructor(private quillInitializeService: QuillInitializeService){}
 
   resetConfig(){
-    this.navTaskObject['config'] = undefined;    
+    delete this.navTaskObject['config'];
     this.showJSON = false;
   }
+
   updateTaskObject(event){
+    console.log(event)
     if(this.validObject()){
       this.navTaskObject['config'] = event;
       this.showJSON = true;   

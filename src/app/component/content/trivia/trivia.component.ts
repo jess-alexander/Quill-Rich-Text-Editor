@@ -10,7 +10,7 @@ export class TriviaComponent implements OnInit {
   @Output() appendQuestion = new EventEmitter();
   quillConfig = quillConfig;
   trivia = {'kind':'select'};
-  config = {};
+  page = { type: 'TRIVIA', question: {}};
   answer = {};
   correct = '';
 
@@ -38,11 +38,12 @@ export class TriviaComponent implements OnInit {
   }
 
   updateDecisionConfig(){
-    // TRIVIA ONLY HAS 1 QUESTION
     
     if(this.validConfig()){
-      this.config['question'] = this.trivia;
-      this.appendQuestion.emit(this.config);
+      this.page['question'] = this.trivia;
+      this.appendQuestion.emit(this.page);
+
+      this.page = { type: 'TRIVIA', question: {}};
       this.trivia    = {'kind':'select'};
       this.answer = {};
     }
