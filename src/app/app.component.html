@@ -1,21 +1,27 @@
 
 
-<div class="form-group">
-  <label for="journey">Journey:</label>
-    <input [(ngModel)]="navTaskObject['journeyTitle']" placeholder="Title" #journey >
-    <input [(ngModel)]="navTaskObject['journeyDescription']" placeholder="Description" >
+<div class="input-group">
+  <div class="lil-group">
+      <label for="journey">Journey:</label> 
+      <input [(ngModel)]="navTaskObject['journeyTitle']" placeholder="Title" #journey >
+      <!-- <input [(ngModel)]="navTaskObject['journeyDescription']" placeholder="Description" > -->
+      <textarea [(ngModel)]="navTaskObject['journeyDescription']" rows="4" cols="40" placeholder="Description" ></textarea>
+  </div>
+
   <br>
   <label for="stageGroup">StageGroup:</label>
   <input [(ngModel)]="navTaskObject['stageGroupTitle']" placeholder="Title" >
-  <input [(ngModel)]="navTaskObject['stageGroupDescription']" placeholder="Description" >
+  <textarea [(ngModel)]="navTaskObject['stageGroupDescription']" rows="4" cols="40" placeholder="Description" ></textarea>
+  <!-- <input [(ngModel)]="navTaskObject['stageGroupDescription']" placeholder="Description" > -->
   <br>
   <label for="stage" >Stage #:</label>
     <input [(ngModel)]="navTaskObject['stageNum']"  placeholder="stage" #stage >
-<br>
+  <br><br><br>
   <label for="priority" >Task #:</label>
     <input [(ngModel)]="navTaskObject['priority']"  placeholder="priority" #priority >
     <input [(ngModel)]="navTaskObject['title']"  placeholder="title"   #tasktitle>
-    <input [(ngModel)]="navTaskObject['description']"  placeholder="description" #description >
+    <textarea [(ngModel)]="navTaskObject['description']" rows="2" cols="40" placeholder="Description" ></textarea>
+    <!-- <input [(ngModel)]="navTaskObject['description']"  placeholder="description" #description > -->
 <br>
   <label for="duration" >task duration:</label>
     <input [(ngModel)]="navTaskObject['duration']"  placeholder="duration" #duration >
