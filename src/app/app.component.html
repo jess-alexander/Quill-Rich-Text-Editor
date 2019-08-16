@@ -36,6 +36,8 @@
     <option value="CONTENT">Static Content</option>
     <option value="QUESTIONNAIRE">Questionnaire / decision</option>
     <option value="BGOCCUPATIONANALYSIS">BurningGlass Occ-Analysis</option>
+    <option value="BGSIMILAROCCUPATION">BurningGlass Similar Occuapation</option>
+    <option value="BGOCCUPATIONOUTLOOK">BurningGlass Occ-Outlook</option>
   </select>
 </div> 
 <br>
@@ -49,6 +51,12 @@
     </div>
   <div *ngSwitchCase="'QUIZ'"> Quiz Builder not Complete </div>
   <div *ngSwitchCase="'BGOCCUPATIONANALYSIS'"> 
+    <button (click)='updateTaskObject($event)'>Generate JSON</button> 
+    </div>
+  <div *ngSwitchCase="'BGSIMILAROCCUPATION'"> 
+    <button (click)='updateTaskObject($event)'>Generate JSON</button> 
+    </div>
+    <div *ngSwitchCase="'BGOCCUPATIONOUTLOOK'"> 
     <button (click)='updateTaskObject($event)'>Generate JSON</button> 
     </div>
   <div *ngSwitchDefault>...</div>
