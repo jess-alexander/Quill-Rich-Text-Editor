@@ -28,9 +28,7 @@
       <label>Lead up</label>
       <quill-editor [(ngModel)]="pageConfig['content']"
         placeholder="Enter Text"
-        [modules]="quillConfig"
-        (onSelectionChanged)="onSelectionChanged($event)"
-        (onContentChanged)="onContentChanged($event)"></quill-editor>
+        [modules]="quillConfig"></quill-editor>
       <label>url</label>    
       <input [(ngModel)]="pageConfig['url']" placeholder="URL" >
       <br>
