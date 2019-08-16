@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {quillConfig} from './models/quillConfig';
 import {QuillInitializeService} from './services/quillInitialize.service';
 import  {TASK_TYPE, CONTENT_SUB_TYPES, ContentTaskConfig, NavigatorTask,
          QuestionnaireTaskConfig
@@ -10,6 +11,7 @@ import  {TASK_TYPE, CONTENT_SUB_TYPES, ContentTaskConfig, NavigatorTask,
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
+  quillConfig = quillConfig;
   showJSON = false;
   navTaskObject: NavigatorTask = {
       title: ''  ,

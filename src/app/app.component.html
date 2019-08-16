@@ -2,7 +2,10 @@
 <div>
   <div class="in-group">
       <label for="journey">Journey:</label> 
-      <textarea [(ngModel)]="navTaskObject['journeyTitle']" placeholder="Title" #journey rows="1" cols="40" > </textarea>
+      <textarea [(ngModel)]="navTaskObject['journeyTitle']" placeholder="Title" #journey rows="1" cols="40" ></textarea>
+      <!-- <quill-editor [(ngModel)]="navTaskObject['journeyDescription']" 
+        placeholder="Description"
+        [modules]="quillConfig"></quill-editor> -->
       <textarea [(ngModel)]="navTaskObject['journeyDescription']" rows="4" cols="50" placeholder="Description" ></textarea>
   </div>
   <div class="in-group">
