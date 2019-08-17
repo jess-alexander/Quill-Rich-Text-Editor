@@ -30,20 +30,18 @@ export class ContentComponent implements OnInit {
 
   appendPage(){
     if(this.pageConfig !== null){
-      this.config['pages'].push(this.pageConfig);
-      // this.updateConfig.emit(this.config);
-      // this.pageConfig = {};
-      this.validateAndSendContent();
+      this.validateAndSendContent(this.pageConfig);
+    }else {
+      this.validation = 'please enter content';
     }
   }
 
   appendQuestion(event){
     console.log(event);
-    this.config['pages'].push(event);
-    this.validateAndSendContent();
+    this.validateAndSendContent(event);
   }
 
-  validateAndSendContent(){
+  validateAndSendContent(contentPage){
     let valid = true;
     switch(this.pageConfig['type']){
       case 'BLURB':
@@ -56,6 +54,8 @@ export class ContentComponent implements OnInit {
       case 'TRIVIA':
     }
     if(valid){
+      this.validation = '';
+      this.config['pages'].push(contentPage);
       this.updateConfig.emit(this.config);
       this.pageConfig = {};
     } else {
@@ -77,13 +77,13 @@ export class ContentComponent implements OnInit {
   // }
   checkTextValid(valid): boolean{
     valid = this.validContent('href','Rich text cannot contain embedded links');
-    if(!valid) return false;
+    if(valid == false) return false;
     valid = this.validContent('•','Remove \'•\' and replace with bullets');
-    if(!valid) return false;
+    if(valid == false) return false;
     valid = this.validContent('background-color','Background color detected, please clear formatting');
-    if(!valid) return false;
+    if(valid == false) return false;
     valid = this.validContent('rgb','Text color detected, please clear formatting');
-    if(!valid) return false;
+    if(valid == false) return false;
     else return true;
   }
 

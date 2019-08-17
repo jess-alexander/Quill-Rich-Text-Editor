@@ -38,6 +38,9 @@ export class AppComponent  {
   //   this.showJSON = false;
   // }
 
+  resetConfig(){
+    delete this.navTaskObject['config'];
+  }
   updateTaskObject(event){
     this.validTitleDesc(event);
     this.navTaskObject['config'] = event; 
