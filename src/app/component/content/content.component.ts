@@ -84,7 +84,7 @@ export class ContentComponent implements OnInit {
     if(valid == false) return false;
     valid = this.validContent('rgb','Text color detected, please clear formatting');
     if(valid == false) return false;
-    valid = this.validContent('nbsp','\'&nbsp\' detected, please use intentions');
+    valid = this.validContent('nbsp','\'&nbsp\' detected, search text blurb for location');
   
     if(valid == false) return false;
     else return true;

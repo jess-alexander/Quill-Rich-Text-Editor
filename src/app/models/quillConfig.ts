@@ -9,7 +9,7 @@ export const quillConfig = {
 
     //     //[{ 'font': [] }],
         [{ 'align': ['','center','right']}],
-
+        [{ 'color': [] }, { 'background': ['none'] }],
         ['clean'],  // remove formatting button
 
         // ['link'],
