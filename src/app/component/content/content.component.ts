@@ -47,10 +47,7 @@ export class ContentComponent implements OnInit {
     switch(this.pageConfig['type']){
       case 'BLURB':
       case 'EXTERNAL':
-        
         valid = this.checkTextValid(valid);
-        
-        console.log(valid);
       case 'FRAME':
       case 'TRIVIA':
     }
@@ -63,19 +60,7 @@ export class ContentComponent implements OnInit {
       this.noUpdate = "json not updated";
     }
   }
-  // content cannot contain
-    /*
-    rgb(
-      •
-    background-color
-    */
-  // clearOfEmbeddedLinks(): boolean{
-  //   let result = this.pageConfig['content'].includes('href');
-  //   if(result){
-  //     alert('Rich text cannot contain embedded links');
-  //   }
-  //   return !result;
-  // }
+  
   checkTextValid(validOutside): boolean{
     this.validation = [];
     let valid = validOutside;
@@ -87,7 +72,7 @@ export class ContentComponent implements OnInit {
     if(valid == false) validOutside = false;
     valid = this.validContent('rgb','Text color detected, please clear formatting');
     if(valid == false) validOutside = false;
-    // this.removeNBSP();
+    this.removeNBSP();
     valid = this.validContent('nbsp','\'&nbsp\' detected, search text below for location')
     if(valid == false) validOutside = false;
     return validOutside;
@@ -97,13 +82,12 @@ export class ContentComponent implements OnInit {
     let result = this.pageConfig['content'].includes(search);
     if(result){
       this.validation.push(errorMessage);
-      // alert(errorMessage);
     }
     return !result;
   }
 
   removeNBSP(){
     var regex = /&nbsp;/gi;
-    this.pageConfig = this.pageConfig['content'].replace(regex,'');
+    this.pageConfig['content'] = this.pageConfig['content'].replace(regex,'');
   }
 }
