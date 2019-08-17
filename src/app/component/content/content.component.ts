@@ -86,8 +86,8 @@ export class ContentComponent implements OnInit {
     valid = this.validContent('rgb','Text color detected, please clear formatting');
     if(valid == false) return false;
     this.removeNBSP();
-    // valid = this.validContent('nbsp','\'&nbsp\' detected, search text blurb for location')
-    // if(valid == false) {this.removeNBSP();}
+    valid = this.validContent('nbsp','\'&nbsp\' detected, search text blurb for location')
+    if(valid == false) return false;
     return true;
   }
 
