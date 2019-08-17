@@ -32,17 +32,19 @@ export class AppComponent  {
 
   constructor(private quillInitializeService: QuillInitializeService){}
 
-  resetConfig(){
-    delete this.navTaskObject['config'];
-    this.showJSON = false;
-  }
+  // resetConfig(){
+  //   delete this.navTaskObject['config'];
+  //   // delete this.navTaskObject['config']['pages'];
+  //   this.showJSON = false;
+  // }
 
   updateTaskObject(event){
-    this.validTitleDesc();
+    this.validTitleDesc(event);
     this.navTaskObject['config'] = event; 
   }
   
-  validTitleDesc(){
+  validTitleDesc(event){
+    
     let valid = true;
 
     if(this.navTaskObject['title'].length >= 55){

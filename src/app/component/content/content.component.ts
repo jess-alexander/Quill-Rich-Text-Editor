@@ -13,6 +13,7 @@ export class ContentComponent implements OnInit {
   quillConfig = quillConfig;
   pageConfig = {};
   config = {'pages': []};
+  validation = '';
 
   constructor() { }
   ngOnInit() { }
@@ -47,7 +48,10 @@ export class ContentComponent implements OnInit {
     switch(this.pageConfig['type']){
       case 'BLURB':
       case 'External':
-        valid = this.clearOfEmbeddedLinks();
+        
+        valid = this.checkTextValid(valid);
+        
+        console.log(valid);
       case 'FRAME':
       case 'TRIVIA':
     }
@@ -55,17 +59,38 @@ export class ContentComponent implements OnInit {
       this.updateConfig.emit(this.config);
       this.pageConfig = {};
     } else {
-      
+      this.validation = "json not updated, correct formating";
     }
   }
-  
-  clearOfEmbeddedLinks(): boolean{
-    let result = this.pageConfig['content'].includes('href');
+  // content cannot contain
+    /*
+    rgb(
+      •
+    background-color
+    */
+  // clearOfEmbeddedLinks(): boolean{
+  //   let result = this.pageConfig['content'].includes('href');
+  //   if(result){
+  //     alert('Rich text cannot contain embedded links');
+  //   }
+  //   return !result;
+  // }
+  checkTextValid(valid): boolean{
+    valid = this.validContent('href','Rich text cannot contain embedded links');
+    if(!valid) return false;
+    valid = this.validContent('•','Remove \'•\' and replace with bullets');
+    if(!valid) return false;
+    valid = this.validContent('background-color','Background color detected, please clear formatting');
+    if(!valid) return false;
+    valid = this.validContent('rgb','Text color detected, please clear formatting');
+    if(!valid) return false;
+  }
+
+  validContent(search, errorMessage):boolean{
+    let result = this.pageConfig['content'].includes(search);
     if(result){
-      alert('Rich text cannot contain embedded links');
+      alert(errorMessage);
     }
     return !result;
-
-    // return true;
   }
 }
