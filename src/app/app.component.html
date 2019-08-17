@@ -78,7 +78,7 @@
 
 <div *ngIf='showJSON'>
   <h4>Task Json</h4>
-  
+  {{navTaskObject | json}}
   <pre>{{navTaskObject | json}}</pre>
   <button (click)='resetConfig()'>Reset</button>
 </div>
