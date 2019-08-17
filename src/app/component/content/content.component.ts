@@ -84,6 +84,7 @@ export class ContentComponent implements OnInit {
     if(!valid) return false;
     valid = this.validContent('rgb','Text color detected, please clear formatting');
     if(!valid) return false;
+    else return true;
   }
 
   validContent(search, errorMessage):boolean{
