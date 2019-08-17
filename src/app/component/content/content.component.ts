@@ -45,7 +45,7 @@ export class ContentComponent implements OnInit {
     let valid = true;
     switch(this.pageConfig['type']){
       case 'BLURB':
-      case 'External':
+      case 'EXTERNAL':
         
         valid = this.checkTextValid(valid);
         
@@ -83,6 +83,9 @@ export class ContentComponent implements OnInit {
     valid = this.validContent('background-color','Background color detected, please clear formatting');
     if(valid == false) return false;
     valid = this.validContent('rgb','Text color detected, please clear formatting');
+    if(valid == false) return false;
+    valid = this.validContent('nbsp','\'&nbsp\' detected, please use intentions');
+  
     if(valid == false) return false;
     else return true;
   }
