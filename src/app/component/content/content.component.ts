@@ -13,7 +13,8 @@ export class ContentComponent implements OnInit {
   quillConfig = quillConfig;
   pageConfig = {};
   config = {'pages': []};
-  validation = '';
+  validation = [];
+  noUpdate = '';
 
   constructor() { }
   ngOnInit() { }
@@ -32,7 +33,7 @@ export class ContentComponent implements OnInit {
     if(this.pageConfig !== null){
       this.validateAndSendContent(this.pageConfig);
     }else {
-      this.validation = 'please enter content';
+      this.validation.push('please enter content');
     }
   }
 
@@ -54,12 +55,12 @@ export class ContentComponent implements OnInit {
       case 'TRIVIA':
     }
     if(valid){
-      this.validation = '';
+      this.validation = [];
       this.config['pages'].push(contentPage);
       this.updateConfig.emit(this.config);
       this.pageConfig = {};
     } else {
-      this.validation = "json not updated, correct formating";
+      this.noUpdate = "json not updated";
     }
   }
   // content cannot contain
@@ -76,25 +77,27 @@ export class ContentComponent implements OnInit {
   //   return !result;
   // }
   checkTextValid(validOutside): boolean{
+    this.validation = [];
     let valid = validOutside;
     valid = this.validContent('href','Rich text cannot contain embedded links');
-    if(valid == false) return false;
+    if(valid == false) validOutside = false;
     valid = this.validContent('•','Remove \'•\' and replace with bullets');
-    if(valid == false) return false;
+    if(valid == false) validOutside = false;
     valid = this.validContent('background-color','Background color detected, please clear formatting');
-    if(valid == false) return false;
+    if(valid == false) validOutside = false;
     valid = this.validContent('rgb','Text color detected, please clear formatting');
-    if(valid == false) return false;
-    this.removeNBSP();
-    valid = this.validContent('nbsp','\'&nbsp\' detected, search text blurb for location')
-    if(valid == false) return false;
-    return true;
+    if(valid == false) validOutside = false;
+    // this.removeNBSP();
+    valid = this.validContent('nbsp','\'&nbsp\' detected, search text below for location')
+    if(valid == false) validOutside = false;
+    return validOutside;
   }
 
   validContent(search, errorMessage):boolean{
     let result = this.pageConfig['content'].includes(search);
     if(result){
-      alert(errorMessage);
+      this.validation.push(errorMessage);
+      // alert(errorMessage);
     }
     return !result;
   }

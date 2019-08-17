@@ -16,7 +16,7 @@
       <br>
       <button (click)="addPage()">addPage</button>
       &nbsp;
-      <span>{{validation}}</span>
+      <span>{{noUpdate}}</span>
     </div>
 
   <div *ngSwitchCase="'FRAME'"> 
@@ -35,12 +35,21 @@
       <input [(ngModel)]="pageConfig['url']" placeholder="URL" >
       <br>
       <button (click)="addPage()">addPage</button>
+      &nbsp;
+      <span>{{noUpdate}}</span>
     </div>
   <div *ngSwitchCase="'TRIVIA'"> 
     <trivia (appendQuestion)="appendQuestion($event)" ></trivia>
     </div>
 </div>
 
+
+
 <!-- <button (click)="clear()">clearPages</button> -->
-<pre *ngIf="validation">{{ pageConfig | json}}</pre>
+<div *ngIf="validation.length > 0">
+  <div *ngFor='let error of validation' style="color: red">
+    <p>{{error}}</p>
+  </div>
+  <pre>{{ pageConfig | json}}</pre>
+<div>
 <!-- <pre>{{ config | json}}</pre> -->
