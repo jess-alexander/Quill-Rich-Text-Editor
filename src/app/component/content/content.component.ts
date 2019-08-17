@@ -75,7 +75,8 @@ export class ContentComponent implements OnInit {
   //   }
   //   return !result;
   // }
-  checkTextValid(valid): boolean{
+  checkTextValid(validOutside): boolean{
+    let valid = validOutside;
     valid = this.validContent('href','Rich text cannot contain embedded links');
     if(valid == false) return false;
     valid = this.validContent('•','Remove \'•\' and replace with bullets');
@@ -84,9 +85,10 @@ export class ContentComponent implements OnInit {
     if(valid == false) return false;
     valid = this.validContent('rgb','Text color detected, please clear formatting');
     if(valid == false) return false;
-    valid = this.validContent('nbsp','\'&nbsp\' detected, search text blurb for location')
-    if(valid == false) {this.removeNBSP();}
-    else return true;
+    this.removeNBSP();
+    // valid = this.validContent('nbsp','\'&nbsp\' detected, search text blurb for location')
+    // if(valid == false) {this.removeNBSP();}
+    return true;
   }
 
   validContent(search, errorMessage):boolean{
@@ -98,6 +100,7 @@ export class ContentComponent implements OnInit {
   }
 
   removeNBSP(){
-    this.pageConfig['content'].replace('&nbsp;','');
+    var regex = /&nbsp;/gi;
+    this.pageConfig = this.pageConfig['content'].replace(regex,'');
   }
 }
