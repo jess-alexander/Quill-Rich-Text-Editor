@@ -72,7 +72,7 @@ export class ContentComponent implements OnInit {
     if(valid == false) validOutside = false;
     valid = this.validContent('rgb','Text color detected, please clear formatting');
     if(valid == false) validOutside = false;
-    this.removeNBSP();
+    // this.removeNBSP();
     valid = this.validContent('nbsp','\'&nbsp\' detected, search text below for location')
     if(valid == false) validOutside = false;
     return validOutside;
